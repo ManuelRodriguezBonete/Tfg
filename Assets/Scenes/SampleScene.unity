@@ -1441,7 +1441,7 @@ MonoBehaviour:
   airDrag: 2.5
   fallSpeed: 8
   lowFallSpeed: 5
-  nExtraJumps: 1
+  nExtraJumps: 2
   hangTime: 0.1
   jumpBufferLen: 0.1
   groundRaycastLength: 1.1
