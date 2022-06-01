@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     private float horDir;
     private float verDir;
     private bool changeDir => (_rb.velocity.x > 0f && horDir < 0f) || (_rb.velocity.x < 0f && horDir > 0f);
+    private bool wallGrab => onWall && !isGrounded && Input.GetButton("WallGrab");
+    private bool wallSlide => onWall && !isGrounded && _rb.velocity.y < 0f;
+    private bool canMove => !wallGrab;
 
     [Header("Jump")]
     [SerializeField] private float jumpForce = 12.0f;
@@ -37,6 +40,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float groundRaycastLength;
     [SerializeField] private Vector3 groundRaycastOffset;
     private bool isGrounded;
+
+    [Header("Wall Jump")]
+    [SerializeField] private float wallRayCastLenght;
+    [SerializeField] private float wallSlideMod;
+    public bool onWall;
+    public bool onRightWall;
 
     [Header ("Corner Correction")]
     [SerializeField] private float topRayCastLen;
@@ -64,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         CheckCollisions();
-        MoveCharacter();
+        if (canMove) MoveCharacter();
         if (isGrounded)
         {
             animator.SetBool("IsJumping", false);
@@ -80,6 +89,8 @@ public class PlayerMovement : MonoBehaviour
             hangTimeCounter -= Time.fixedDeltaTime;
         }
         if (canCorner) CornerCorrect(_rb.velocity.y);
+        if (wallGrab) WallGrab();
+        if (wallSlide) WallSlide();
     }
     private static Vector2 GetInput()
     {
@@ -101,6 +112,15 @@ public class PlayerMovement : MonoBehaviour
             _rb.velocity = new Vector2(Mathf.Sign(_rb.velocity.x) * maxMovSpeed, _rb.velocity.y);
         }
     }
+    private void WallGrab()
+    {
+        _rb.gravityScale = 0;
+        _rb.velocity = new Vector2(_rb.velocity.x, 0);
+    }
+    private void WallSlide()
+    {
+        _rb.velocity = new Vector2(_rb.velocity.x, -maxMovSpeed * wallSlideMod);
+    }
     private void ApplyGroundLinearDrag()
     {
         if (Mathf.Abs(horDir) < 0.4f || changeDir)
@@ -119,10 +139,16 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         animator.SetBool("IsJumping", true);
-        if (!isGrounded) extraJumpsValue--;
-
-        _rb.velocity = new Vector2(_rb.velocity.x, 0);
-        _rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        if (!isGrounded){
+            extraJumpsValue--;
+            _rb.AddForce(Vector2.up * jumpForce*0.8f, ForceMode2D.Impulse);
+        }
+        else
+        {
+            _rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+        //_rb.velocity = new Vector2(_rb.velocity.x, 0);
+        
         hangTimeCounter = 0f;
         jumpBufferCounter = 0f;
     }
@@ -160,7 +186,12 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics2D.Raycast(transform.position * groundRaycastLength, Vector2.down, groundRaycastLength, groundLM);
 
         isGrounded = Physics2D.Raycast(transform.position + groundRaycastOffset, Vector2.down, groundRaycastLength, groundLM) ||
-                    Physics2D.Raycast(transform.position - groundRaycastOffset, Vector2.down, groundRaycastLength, groundLM);
+                     Physics2D.Raycast(transform.position - groundRaycastOffset, Vector2.down, groundRaycastLength, groundLM);
+
+        onWall = Physics2D.Raycast(transform.position, Vector2.right, wallRayCastLenght, groundLM) || 
+                 Physics2D.Raycast(transform.position, Vector2.left, wallRayCastLenght, groundLM);
+
+        onRightWall = Physics2D.Raycast(transform.position, Vector2.right, wallRayCastLenght, groundLM);
     }
     private void Flip()
     {
@@ -176,5 +207,10 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.yellow; 
         Gizmos.DrawLine(transform.position + groundRaycastOffset, transform.position + groundRaycastOffset + Vector3.down * groundRaycastLength);
         Gizmos.DrawLine(transform.position - groundRaycastOffset, transform.position - groundRaycastOffset + Vector3.down * groundRaycastLength);
+
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.right * wallRayCastLenght);
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.left * wallRayCastLenght);
+
+
     }
 }
