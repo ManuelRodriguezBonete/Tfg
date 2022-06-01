@@ -4163,6 +4163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5bff8c2a7f22b49acbf28dfcca200d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1688322941}
   groundLM:
     serializedVersion: 2
     m_Bits: 256
@@ -4176,7 +4177,7 @@ MonoBehaviour:
   nExtraJumps: 2
   hangTime: 0.1
   jumpBufferLen: 0.1
-  groundRaycastLength: 1.1
+  groundRaycastLength: 0.5
   groundRaycastOffset: {x: 0.19, y: 0, z: 0}
   topRayCastLen: 0.85
   edgeRayOffset: {x: 0.19, y: 0, z: 0}
