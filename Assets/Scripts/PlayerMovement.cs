@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Components")]
     Rigidbody2D _rb;
+    Animator animator;
 
     [Header("Layer Masks")]
     [SerializeField] private LayerMask groundLM;
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movAcce;
     [SerializeField] private float maxMovSpeed;
     [SerializeField] private float groundDrag;
+    [SerializeField] private bool facingRight = true;
     private float horDir;
     private float verDir;
     private bool changeDir => (_rb.velocity.x > 0f && horDir < 0f) || (_rb.velocity.x < 0f && horDir > 0f);
@@ -47,22 +49,16 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
-
 
     void Update()
     {
-
         horDir = GetInput().x;
         verDir = GetInput().y;
-        if (Input.GetButtonDown("Jump"))
-        {
-            jumpBufferCounter = jumpBufferLen;
-        }
-        else
-        {
-            jumpBufferCounter -= Time.deltaTime;
-        }
+        animator.SetFloat("Speed", Mathf.Abs(horDir));
+        if (Input.GetButtonDown("Jump")) jumpBufferCounter = jumpBufferLen;
+        else jumpBufferCounter -= Time.deltaTime;
         if (canJump) Jump();
     }
     private void FixedUpdate()
@@ -71,12 +67,14 @@ public class PlayerMovement : MonoBehaviour
         MoveCharacter();
         if (isGrounded)
         {
+            animator.SetBool("IsJumping", false);
             extraJumpsValue = nExtraJumps; 
             hangTimeCounter = hangTime;
             ApplyGroundLinearDrag();
         }
         else
         {
+            animator.SetBool("IsJumping", true);
             ApplyAirLinearDrag();
             FallMultiplier();
             hangTimeCounter -= Time.fixedDeltaTime;
@@ -89,6 +87,14 @@ public class PlayerMovement : MonoBehaviour
     }
     private void MoveCharacter()
     {
+        if (horDir > 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (horDir < 0 && facingRight)
+        {
+            Flip();
+        }
         _rb.AddForce(new Vector2(horDir, 0f) * movAcce);
         if (Mathf.Abs(_rb.velocity.x) > maxMovSpeed)
         {
@@ -112,8 +118,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Jump()
     {
-        if (!isGrounded)
-            extraJumpsValue--;
+        animator.SetBool("IsJumping", true);
+        if (!isGrounded) extraJumpsValue--;
 
         _rb.velocity = new Vector2(_rb.velocity.x, 0);
         _rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -122,18 +128,12 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FallMultiplier()
     {
-        if (_rb.velocity.y < 0)
-        {
-            _rb.gravityScale = fallSpeed;
-        }
-        else if (_rb.velocity.y > 0 && !Input.GetButton("Jump"))
-        {
-            _rb.gravityScale = lowFallSpeed;
-        }
-        else
-        {
-            _rb.gravityScale = 1;
-        }
+        if (_rb.velocity.y < 0)  _rb.gravityScale = fallSpeed;
+        
+        else if (_rb.velocity.y > 0 && !Input.GetButton("Jump"))  _rb.gravityScale = lowFallSpeed;
+        
+        else  _rb.gravityScale = 1;
+        
     }
     private void CornerCorrect(float velY)
     {
@@ -161,6 +161,15 @@ public class PlayerMovement : MonoBehaviour
 
         isGrounded = Physics2D.Raycast(transform.position + groundRaycastOffset, Vector2.down, groundRaycastLength, groundLM) ||
                     Physics2D.Raycast(transform.position - groundRaycastOffset, Vector2.down, groundRaycastLength, groundLM);
+    }
+    private void Flip()
+    {
+        facingRight = !facingRight;
+
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+
     }
     private void OnDrawGizmos()
     {
