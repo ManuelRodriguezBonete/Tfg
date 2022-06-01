@@ -4062,8 +4062,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.07}
-  m_Size: {x: 0.5, y: 0.67}
+  m_Offset: {x: 0, y: -0}
+  m_Size: {x: 0.7, y: 1.53}
   m_Direction: 0
 --- !u!50 &1688322937
 Rigidbody2D:
@@ -4163,13 +4163,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5bff8c2a7f22b49acbf28dfcca200d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1688322941}
   groundLM:
     serializedVersion: 2
     m_Bits: 256
   movAcce: 75
   maxMovSpeed: 8
   groundDrag: 10
+  facingRight: 1
   jumpForce: 12
   airDrag: 2.5
   fallSpeed: 8
@@ -4177,7 +4177,7 @@ MonoBehaviour:
   nExtraJumps: 2
   hangTime: 0.1
   jumpBufferLen: 0.1
-  groundRaycastLength: 0.5
+  groundRaycastLength: 0.82
   groundRaycastOffset: {x: 0.19, y: 0, z: 0}
   topRayCastLen: 0.85
   edgeRayOffset: {x: 0.19, y: 0, z: 0}
