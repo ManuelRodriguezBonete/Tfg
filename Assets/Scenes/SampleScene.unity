@@ -4068,9 +4068,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1688322939}
   - component: {fileID: 1688322938}
-  - component: {fileID: 1688322937}
-  - component: {fileID: 1688322936}
   - component: {fileID: 1688322940}
+  - component: {fileID: 1688322937}
+  - component: {fileID: 1688322942}
+  - component: {fileID: 1688322936}
   - component: {fileID: 1688322941}
   m_Layer: 0
   m_Name: Player
@@ -4092,8 +4093,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0}
-  m_Size: {x: 0.7, y: 1.53}
+  m_Offset: {x: 0, y: -0.16}
+  m_Size: {x: 0.72, y: 1.24}
   m_Direction: 0
 --- !u!50 &1688322937
 Rigidbody2D:
@@ -4210,6 +4211,7 @@ MonoBehaviour:
   groundRaycastLength: 0.82
   groundRaycastOffset: {x: 0.19, y: 0, z: 0}
   wallRayCastLenght: 0.7
+  wallSlideMod: 1
   onWall: 0
   onRightWall: 0
   topRayCastLen: 0.85
@@ -4234,6 +4236,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &1688322942
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688322935}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.18}
+  serializedVersion: 2
+  m_Radius: 0.52
 --- !u!1 &1971380559
 GameObject:
   m_ObjectHideFlags: 0
