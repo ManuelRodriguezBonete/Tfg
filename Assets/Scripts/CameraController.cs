@@ -10,7 +10,10 @@ public class CameraController : MonoBehaviour
 
     //Solo se usaría en el método 2
     Vector3 velocity;
-
+    private void Awake()
+    {
+        transform.position = target.transform.position;
+    }
     private void LateUpdate()
     {
         //Metodo 1
