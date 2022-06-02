@@ -210,7 +210,7 @@ public class PlayerMovement : MonoBehaviour
     private void Climb()
     {
         isClimbing = true;
-        _rb.velocity = new Vector2(_rb.velocity.x, maxMovSpeed * wallSlideMod * verDir);
+        _rb.velocity = new Vector2(0, maxMovSpeed * wallSlideMod * verDir);
     }
     private void WallGrab()
     {
