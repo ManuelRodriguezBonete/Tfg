@@ -4320,6 +4320,7 @@ MonoBehaviour:
   dashSpeed: 15
   dashLength: 0.5
   dashBufferLength: 0.2
+  wallClimbingSpeed: 0
   topRayCastLen: 0.85
   edgeRayOffset: {x: 0.19, y: 0, z: 0}
   innerRayOffset: {x: 0.18, y: 0, z: 0}
