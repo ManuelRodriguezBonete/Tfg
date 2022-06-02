@@ -95,12 +95,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         CheckCollisions();
-        //Debug.Log(canDash);
         if (canDash) StartCoroutine(Dash(horDir, verDir));
         if (!isDashing)
         {
             if (canMove) MoveCharacter();
-            if (canClimb && verDir!=0) Climb();
+            //if (canClimb && verDir!=0) Climb();
             else _rb.velocity = Vector2.Lerp(_rb.velocity, (new Vector2(horDir * maxMovSpeed, _rb.velocity.y)), 0.5f * Time.fixedDeltaTime);
             if (isGrounded)
             {
@@ -138,8 +137,8 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-
         if (canCorner) CornerCorrect(_rb.velocity.y);
+
     }
     private static Vector2 GetInput()
     {
