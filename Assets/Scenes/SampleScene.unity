@@ -4317,10 +4317,10 @@ MonoBehaviour:
   wallJumpXVel: 0.2
   onWall: 0
   onRightWall: 0
-  dashSpeed: 15
+  dashSpeed: 20
   dashLength: 0.5
   dashBufferLength: 0.2
-  wallClimbingSpeed: 0
+  wallClimbingSpeed: 0.36
   isClimbing: 0
   topRayCastLen: 0.85
   edgeRayOffset: {x: 0.19, y: 0, z: 0}
