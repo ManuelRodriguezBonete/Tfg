@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PixelartShader
-  m_Shader: {fileID: -6465566751694194690, guid: a049b8b0c5f99ce44abaff8f307309c6, type: 3}
+  m_Name: VoronoiMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 8150067d2fa24874b83344dc2a4c0911, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,8 +19,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_3ee943ba2dc64f868828596c254bb676:
-        m_Texture: {fileID: 2800000, guid: 5ecfddcbb00cc9a4282cab0f504e5a80, type: 3}
+    - Texture2D_43a4a31ae52c4fbe9ee683f5b9913b0f:
+        m_Texture: {fileID: 2800000, guid: f38446ef00dd5ef4cb077a4348ee63c5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -36,6 +36,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_e39f6f3e64b4468692406a9b68f285a5: 0.105
+    - Vector1_6ff06a15db6b4018b3e03a07b90370a4: 1.31
+    - Vector1_77d9bebbd6604ddb83c4ca913f908e64: 208.39
+    - Vector1_785d670d274f486aa930778f08f3c9d5: 0.06
+    - Vector1_b2217288b2364e91b2c7227c1f428e49: 2.33
     m_Colors: []
   m_BuildTextureStacks: []
