@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private bool changeDir => (_rb.velocity.x > 0f && horDir < 0f) || (_rb.velocity.x < 0f && horDir > 0f);
     private bool wallGrab => onWall && !isGrounded && Input.GetButton("WallGrab");
     private bool wallSlide => onWall && !isGrounded && _rb.velocity.y < 0f;
-    private bool canMove => !wallGrab;
+    public bool canMove => !wallGrab && !isClimbing;
 
     [Header("Jump")]
     [SerializeField] private float jumpForce = 12.0f;
@@ -58,6 +58,10 @@ public class PlayerMovement : MonoBehaviour
     private bool isDashing;
     private bool canDash => dashBufferCounter > 0.0f && !hasDashed;
 
+    [Header("Climbing")]
+    [SerializeField] private float wallClimbingSpeed = 1.0f;
+    private bool canClimb = true;
+    public bool isClimbing;
 
     [Header ("Corner Correction")]
     [SerializeField] private float topRayCastLen;
@@ -77,28 +81,25 @@ public class PlayerMovement : MonoBehaviour
     {
         horDir = GetInput().x;
         verDir = GetInput().y;
-        animator.SetFloat("Speed", Mathf.Abs(horDir));
+        Animate();
+        
+        //Jump
         if (Input.GetButtonDown("Jump")) jumpBufferCounter = jumpBufferLen;
         else jumpBufferCounter -= Time.deltaTime;
         
-        if (Input.GetButtonDown("Dash"))
-        {
-            Debug.Log(Input.GetButtonDown("Dash"));
-            dashBufferCounter = dashBufferLength;
-            Debug.Log(canDash);
-        }
-
+        //Dash
+        if (Input.GetButtonDown("Dash")) dashBufferCounter = dashBufferLength;
         else dashBufferCounter -= Time.deltaTime;
 
     }
     private void FixedUpdate()
     {
         CheckCollisions();
-        //Debug.Log(canDash);
         if (canDash) StartCoroutine(Dash(horDir, verDir));
         if (!isDashing)
         {
             if (canMove) MoveCharacter();
+            //if (canClimb && verDir!=0) Climb();
             else _rb.velocity = Vector2.Lerp(_rb.velocity, (new Vector2(horDir * maxMovSpeed, _rb.velocity.y)), 0.5f * Time.fixedDeltaTime);
             if (isGrounded)
             {
@@ -107,10 +108,10 @@ public class PlayerMovement : MonoBehaviour
                 hangTimeCounter = hangTime;
                 ApplyGroundLinearDrag();
                 hasDashed = false;
+                isClimbing = false;
             }
             else
             {
-                animator.SetBool("IsJumping", true);
                 ApplyAirLinearDrag();
                 FallMultiplier();
                 hangTimeCounter -= Time.fixedDeltaTime;
@@ -136,14 +137,41 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-
         if (canCorner) CornerCorrect(_rb.velocity.y);
+
     }
     private static Vector2 GetInput()
     {
         return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
+    private void Animate()
+    {
+        animator.SetFloat("Speed", Mathf.Abs(horDir));
+        if (horDir > 0 && !facingRight) Flip();
+        else if (horDir < 0 && facingRight) Flip();
 
+        if (isDashing)
+        {
+            animator.SetBool("IsDashing", true);
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsClimbing", false);
+        }
+        if (isJumping)
+        {
+            animator.SetBool("IsJumping", true);
+            animator.SetBool("IsClimbing", false);
+            animator.SetBool("IsDashing", false);
+        }
+        if (isClimbing)
+        {
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsClimbing", true);
+            animator.SetBool("IsDashing", false);
+        }
+        if(!isClimbing) animator.SetBool("IsClimbing", false);
+
+
+    }
     IEnumerator Dash(float x, float y)
     {
         float dashStart = Time.time;
@@ -167,24 +195,21 @@ public class PlayerMovement : MonoBehaviour
             _rb.velocity = dir.normalized * dashSpeed;
             yield return null;
         }
+        animator.SetBool("IsDashing", false);
         isDashing = false;
     }
     private void MoveCharacter()
     {
-        if (horDir > 0 && !facingRight)
-        {
-            Flip();
-        }
-        else if (horDir < 0 && facingRight)
-        {
-            Flip();
-        }
-
         _rb.AddForce(new Vector2(horDir, 0f) * movAcce);
         if (Mathf.Abs(_rb.velocity.x) > maxMovSpeed)
         {
             _rb.velocity = new Vector2(Mathf.Sign(_rb.velocity.x) * maxMovSpeed, _rb.velocity.y);
         }
+    }
+    private void Climb()
+    {
+        isClimbing = true;
+        _rb.velocity = new Vector2(0, maxMovSpeed * wallSlideMod * verDir);
     }
     private void WallGrab()
     {
@@ -213,7 +238,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Jump(Vector2 direc)
     {
-        Debug.Log(direc);
         animator.SetBool("IsJumping", true);
         if (direc == Vector2.up)
         {
