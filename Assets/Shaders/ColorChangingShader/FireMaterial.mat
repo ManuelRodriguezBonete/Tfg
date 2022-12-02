@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SCN_4_Glow
-  m_Shader: {fileID: -6465566751694194690, guid: 55224cd3d9c0de6448a48b9e8abb0c3d, type: 3}
+  m_Name: FireMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: fb4d468e471a10b4d8ed7dc47cd30bbd, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,12 +19,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_33fe21e631d047beb8c7ca4f66910188:
-        m_Texture: {fileID: 2800000, guid: 5e747e270e586364ab7d63fe53b01f25, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_9b1952b18e0f40e58ac9d4883dfd33df:
-        m_Texture: {fileID: 2800000, guid: 33966753d22de6941aee52b79660983a, type: 3}
+    - Texture2D_27ca10842ace4b4bb9a90eef41b7ba1f:
+        m_Texture: {fileID: 2800000, guid: 8618c83cae469a643a0ab2994c9df45b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -41,5 +37,5 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors:
-    - Color_d8e5f6565ce94ffda6a6c846571e52c9: {r: 0, g: 0.6745098, b: 0.8078432, a: 1}
+    - Color_bf8ccc244beb4a1c86e46d2d0d51460b: {r: 0, g: 1, b: 0.6565051, a: 1}
   m_BuildTextureStacks: []

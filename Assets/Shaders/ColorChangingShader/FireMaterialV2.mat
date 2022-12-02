@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SlimeMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 694f12dd94fb16145b4172b2ac80d731, type: 3}
+  m_Name: FireMaterialV2
+  m_Shader: {fileID: -6465566751694194690, guid: c75e0e656757f174da2d11ec4f27e6f6, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,12 +19,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_7e55ff353902434581f269d08dee4f13:
-        m_Texture: {fileID: 2800000, guid: 1bfd4e9b8cd74104282819bde2ef25a9, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Emission:
-        m_Texture: {fileID: 2800000, guid: 10ecbbc448968b1459c6a959d729f580, type: 3}
+    - Texture2D_79c698a573cf42ef916847e853eafb8a:
+        m_Texture: {fileID: 2800000, guid: 8618c83cae469a643a0ab2994c9df45b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -41,5 +37,5 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors:
-    - Color_936ed5303e174cacb19b6da92fbb49eb: {r: 0.45882356, g: 0.08627451, b: 0.25882354, a: 1}
+    - Color_6df3c347f8b8403399cc9a0c9a57f205: {r: 0.22352937, g: 0.8670051, b: 0.8862745, a: 0}
   m_BuildTextureStacks: []
