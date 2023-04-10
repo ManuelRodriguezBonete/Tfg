@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimerScript : MonoBehaviour
+public class DissapearingPlatformScript : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private float initialTimer = 2f;
     [SerializeField] private float timer;
-    [SerializeField] private GameObject sprite1;
-    [SerializeField] private GameObject sprite2;
+    [SerializeField] private List<GameObject>  sprites;
     private float reAppearTimer;
     private bool reAppearBool = false;
 
@@ -25,8 +24,10 @@ public class TimerScript : MonoBehaviour
             reAppearTimer -= Time.deltaTime;
             if (reAppearTimer <= 0)
             {
-                sprite1.SetActive(true);
-                sprite2.SetActive(true);
+                for (int i = 0; i < sprites.Count; i++)
+                {
+                    sprites[i].SetActive(true);
+                }
                 reAppearBool = false;
             }
         }
@@ -39,8 +40,10 @@ public class TimerScript : MonoBehaviour
             if (timer <= 0)
             {
                 Debug.Log("Me desaparesco");
-                sprite1.SetActive(false);
-                sprite2.SetActive(false);
+                for (int i = 0; i < sprites.Count; i++)
+                {
+                    sprites[i].SetActive(false);
+                }
                 reAppearBool = true;
                 ResetTimer();
             }

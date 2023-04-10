@@ -4738,5 +4738,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: DissapearPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 3634529139785669807, guid: 060a0ed87b923ec40b6fe695820f0857, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 060a0ed87b923ec40b6fe695820f0857, type: 3}
