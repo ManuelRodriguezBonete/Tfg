@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movAcce;
     [SerializeField] private float maxMovSpeed;
     [SerializeField] private float groundDrag;
-    [SerializeField] private bool facingRight = true;
+    [SerializeField] public bool facingRight = true;
     private float horDir;
     private float verDir;
     private bool changeDir => (_rb.velocity.x > 0f && horDir < 0f) || (_rb.velocity.x < 0f && horDir > 0f);
