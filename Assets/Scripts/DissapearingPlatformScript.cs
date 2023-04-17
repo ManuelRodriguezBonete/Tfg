@@ -39,7 +39,6 @@ public class DissapearingPlatformScript : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
-                Debug.Log("Me desaparesco");
                 for (int i = 0; i < sprites.Count; i++)
                 {
                     sprites[i].SetActive(false);
