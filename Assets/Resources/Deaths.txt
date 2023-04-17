@@ -1,0 +1,4 @@
+Total 24
+StaticSpike 17
+FallingSpikes 5
+PoisonCloud 1

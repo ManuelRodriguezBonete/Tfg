@@ -5,10 +5,10 @@ using UnityEngine;
 public class RespawnPointsScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] ControllerScript controller;
+    [SerializeField] DeathControllerScript controller;
     void Start()
     {
-        controller = GetComponent<ControllerScript>();
+        //controller = GetComponent<DeathControllerScript>();
     }
 
     // Update is called once per frame

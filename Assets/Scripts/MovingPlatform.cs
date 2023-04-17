@@ -17,11 +17,6 @@ public class MovingPlatform : MonoBehaviour
     void Update()
     {
         CheckPos();
-        //if (Vector2.Distance(transform.position, posA.position) < 0.1f) target = posB.position;
-        //if (Vector2.Distance(transform.position, posB.position) < 0.1f) target = posA.position;
-
-        
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -45,6 +40,10 @@ public class MovingPlatform : MonoBehaviour
             currentPos++;
             if (currentPos >= posiciones.Count) currentPos = 0;
             target = posiciones[currentPos].position;
+            if (this.CompareTag("Slime"))
+            {
+                transform.Rotate(new Vector3(0, 180f));
+            }
         }
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }

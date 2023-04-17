@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PoisonCloudScript : MonoBehaviour
 {
-    [SerializeField] ControllerScript controller;
+    [SerializeField] DeathControllerScript controller;
     [SerializeField] private float initialTimer;
     private float timer;
     // Start is called before the first frame update
@@ -27,7 +27,7 @@ public class PoisonCloudScript : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
-                controller.KillPlayer();
+                controller.KillPlayer("PoisonCloud");
             }
         }
     }
