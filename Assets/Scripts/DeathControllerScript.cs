@@ -8,23 +8,14 @@ using UnityEngine.Tilemaps;
 public class DeathControllerScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    [Header("Other Controllers")]
+    [Header("Controllers")]
     [SerializeField] private IOController ioController;
 
     [Header("Player")]
     [SerializeField] private GameObject player;
 
-    [Header("Deaths")]
-    private List<int> deathList;
     private Dictionary<string, int> deathDict;
- 
-    [Header("Tilemaps")]
-    [SerializeField] private Tilemap respawnPointsLayer;
-    [SerializeField] private Tilemap spikesLayer;
-
-    
-
-    private Vector3 lastSavedPoint;
+    private Vector3 spawnPoint;
 
     private void Start()
     {
@@ -33,7 +24,7 @@ public class DeathControllerScript : MonoBehaviour
     }
     public void KillPlayer(string key)
     {
-        player.transform.position = lastSavedPoint;
+        player.transform.position = spawnPoint;
         if (deathDict.TryGetValue(key, out var auxDeath))
         {
             auxDeath++;
@@ -52,7 +43,7 @@ public class DeathControllerScript : MonoBehaviour
 
     public void SavePoint(Vector3 lastPosition)
     {
-        lastSavedPoint = lastPosition;
+        spawnPoint = lastPosition;
     }
     private void ReadDeaths()
     {

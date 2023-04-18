@@ -20,20 +20,31 @@ public class BreakeableGround : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         bool facingRight = player.GetComponent<PlayerMovement>().facingRight;
-        Vector3 hitPosition = player.transform.position;
+        Vector3 hitPosition = collision.transform.position;
+        Vector3 hitCorner = collision.transform.position;
+        Vector3 topPosition = collision.transform.position + new Vector3(0f, 0.8f, 0f);
+        Vector3 botPosition = collision.transform.position + new Vector3(0f, -0.8f, 0f);
+        Debug.Log(hitPosition);
+
         if (facingRight)
         {
-            hitPosition = player.transform.position + new Vector3(0.5f, 0f, 0f);
+            hitPosition = collision.transform.position + new Vector3(0.8f, 0f, 0f);
+            hitCorner = collision.transform.position + new Vector3(0.8f, 0.5f, 0f);
         }
         else
         {
-            hitPosition = player.transform.position + new Vector3(-0.5f, 0f, 0f);
+            hitPosition = collision.transform.position + new Vector3(-0.8f, 0f, 0f);
+            hitCorner = collision.transform.position + new Vector3(0.8f, -0.5f, 0f);
+
         }
-        
+
 
         if (collision.gameObject == player)
         {
             tilemap.SetTile(tilemap.WorldToCell(hitPosition), null);
+            tilemap.SetTile(tilemap.WorldToCell(hitCorner), null);
+            tilemap.SetTile(tilemap.WorldToCell(topPosition), null);
+            tilemap.SetTile(tilemap.WorldToCell(botPosition), null);
         }
 
 

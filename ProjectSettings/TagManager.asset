@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Platform
   - Slime
+  - Cloud
   layers:
   - Default
   - TransparentFX

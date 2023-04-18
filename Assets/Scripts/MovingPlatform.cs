@@ -20,7 +20,7 @@ public class MovingPlatform : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && this.CompareTag("Platform"))
         {
             collision.transform.SetParent(this.transform);
         }
@@ -28,7 +28,7 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && this.CompareTag("Platform"))
         {
             collision.transform.SetParent(null);
         }

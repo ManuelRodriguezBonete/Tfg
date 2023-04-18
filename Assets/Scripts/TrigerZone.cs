@@ -7,7 +7,6 @@ public class TrigerZone : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private GameObject spike;
     [SerializeField] private int fallingSpeed;
-    [SerializeField] private Vector3 initialSpikePos;
     void Start()
     {
         Initialize();
@@ -26,7 +25,6 @@ public class TrigerZone : MonoBehaviour
     private void Initialize()
     {
         this.gameObject.SetActive(true);
-        initialSpikePos = spike.transform.position; 
         spike.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         spike.GetComponent<Rigidbody2D>().mass = fallingSpeed;
     }

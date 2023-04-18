@@ -17,7 +17,7 @@ public class IOController : MonoBehaviour
         string[] content = File.ReadAllLines(path);
         for (int i = 0; i < content.Length; i++)
         {
-            string[] line = content[i].Split(' ');
+            string[] line = content[i].Split('-');
             deathDict.Add(line[0], Convert.ToInt32(line[1]));
         }
         
@@ -29,7 +29,7 @@ public class IOController : MonoBehaviour
         File.WriteAllText(path, "");
         foreach (var death in deathList)
         {
-            File.AppendAllText(path, death.Key + " " + death.Value +"\n");
+            File.AppendAllText(path, death.Key + "-" + death.Value +"\n");
         }
     }
 }
