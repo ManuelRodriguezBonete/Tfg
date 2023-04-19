@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,12 +12,27 @@ public class InitialMenuController : MonoBehaviour
     [SerializeField] GameObject statsMenu;
     [SerializeField] GameObject creditMenu;
     [SerializeField] GameObject settingsMenu;
+    [SerializeField] IOController controller;
+    [SerializeField] public Dictionary<string, int> deathDict;
+    [SerializeField] private TextMeshProUGUI muertesTotales;
 
-    // Update is called once per frame
-    void Update()
+
+    private void Awake()
     {
-        
+        OnMainMenu();
+        deathDict = new Dictionary<string, int>();
+        deathDict = controller.ReadDeaths();
+        SetMuertesTotales();
     }
+
+    private void SetMuertesTotales()
+    {
+        if (deathDict.TryGetValue("Total", out var totalDeaths))
+        {
+            muertesTotales.text += totalDeaths.ToString();
+        }
+    }
+
     public void GoGameScene()
     {
         SceneManager.LoadScene(0);
@@ -38,5 +55,18 @@ public class InitialMenuController : MonoBehaviour
         statsMenu.SetActive(false);
         creditMenu.SetActive(false);
     }
-
+    public void OnStatsMenu()
+    {
+        mainMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+        statsMenu.SetActive(true);
+        creditMenu.SetActive(false);
+    }
+    public void OnSettingsMenu()
+    {
+        mainMenu.SetActive(false);
+        settingsMenu.SetActive(true);
+        statsMenu.SetActive(false);
+        creditMenu.SetActive(false);
+    }
 }
