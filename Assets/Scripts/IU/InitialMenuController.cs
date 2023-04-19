@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class InitialMenuController : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject statsMenu;
+    [SerializeField] GameObject creditMenu;
+    [SerializeField] GameObject settingsMenu;
 
     // Update is called once per frame
     void Update()
@@ -24,4 +24,19 @@ public class InitialMenuController : MonoBehaviour
     {
         Application.Quit();
     }
+    public void OnCredits()
+    {
+        mainMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+        statsMenu.SetActive(false);
+        creditMenu.SetActive(true);
+    }
+    public void OnMainMenu()
+    {
+        mainMenu.SetActive(true);
+        settingsMenu.SetActive(false);
+        statsMenu.SetActive(false);
+        creditMenu.SetActive(false);
+    }
+
 }
