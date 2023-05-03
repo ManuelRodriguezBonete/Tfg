@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float hangTime= 0.1f;
     [SerializeField] private float jumpBufferLen= 0.1f;
     private bool isJumping;
+    private bool hasLanded;
     private int extraJumpsValue;
     private float hangTimeCounter;
     private float jumpBufferCounter;
@@ -43,7 +44,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
 
     [Header("Wall Jump")]
-    [SerializeField] private float wallRayCastLenght;
+    [SerializeField] private float wallRayCastLenght; 
+    [SerializeField] private Vector3 wallRaycastOffset;
     [SerializeField] private float wallSlideMod;
     [SerializeField] private float wallJumpXVel = 0.2f;
     public bool onWall;
@@ -92,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
         else dashBufferCounter -= Time.deltaTime;
 
     }
+    
     private void FixedUpdate()
     {
         CheckCollisions();
@@ -104,6 +107,11 @@ public class PlayerMovement : MonoBehaviour
             if (isGrounded)
             {
                 animator.SetBool("IsJumping", false);
+                if (hasLanded == true)
+                {
+                    animator.SetBool("Landed", true);
+                    hasLanded= false;
+                }
                 extraJumpsValue = nExtraJumps;
                 hangTimeCounter = hangTime;
                 ApplyGroundLinearDrag();
@@ -154,21 +162,21 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsDashing", true);
             animator.SetBool("IsJumping", false);
-            animator.SetBool("IsClimbing", false);
+            //animator.SetBool("IsClimbing", false);
         }
         if (isJumping)
         {
             animator.SetBool("IsJumping", true);
-            animator.SetBool("IsClimbing", false);
+            //animator.SetBool("IsClimbing", false);
             animator.SetBool("IsDashing", false);
         }
         if (isClimbing)
         {
             animator.SetBool("IsJumping", false);
-            animator.SetBool("IsClimbing", true);
+            //animator.SetBool("IsClimbing", true);
             animator.SetBool("IsDashing", false);
         }
-        if(!isClimbing) animator.SetBool("IsClimbing", false);
+        //if(!isClimbing) animator.SetBool("IsClimbing", false);
 
 
     }
@@ -308,13 +316,14 @@ public class PlayerMovement : MonoBehaviour
     }
     private void CheckCollisions()
     {
+
         isGrounded = Physics2D.Raycast(transform.position * groundRaycastLength, Vector2.down, groundRaycastLength, groundLM);
 
         isGrounded = Physics2D.Raycast(transform.position + groundRaycastOffset, Vector2.down, groundRaycastLength, groundLM) ||
                      Physics2D.Raycast(transform.position - groundRaycastOffset, Vector2.down, groundRaycastLength, groundLM);
 
-        onWall = Physics2D.Raycast(transform.position, Vector2.right, wallRayCastLenght, groundLM) || 
-                 Physics2D.Raycast(transform.position, Vector2.left, wallRayCastLenght, groundLM);
+        onWall = Physics2D.Raycast(transform.position + wallRaycastOffset, Vector2.right, wallRayCastLenght, groundLM) || 
+                 Physics2D.Raycast(transform.position + wallRaycastOffset, Vector2.left, wallRayCastLenght, groundLM);
 
         onRightWall = Physics2D.Raycast(transform.position, Vector2.right, wallRayCastLenght, groundLM);
     }
@@ -333,8 +342,8 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawLine(transform.position + groundRaycastOffset, transform.position + groundRaycastOffset + Vector3.down * groundRaycastLength);
         Gizmos.DrawLine(transform.position - groundRaycastOffset, transform.position - groundRaycastOffset + Vector3.down * groundRaycastLength);
 
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.right * wallRayCastLenght);
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.left * wallRayCastLenght);
+        Gizmos.DrawLine(transform.position + wallRaycastOffset, transform.position + wallRaycastOffset + Vector3.right * wallRayCastLenght);
+        Gizmos.DrawLine(transform.position + wallRaycastOffset, transform.position + wallRaycastOffset + Vector3.left * wallRayCastLenght);
 
 
     }

@@ -35,7 +35,7 @@ public class InitialMenuController : MonoBehaviour
 
     public void GoGameScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Pruebas");
     }
     public void CloseGame()
     {

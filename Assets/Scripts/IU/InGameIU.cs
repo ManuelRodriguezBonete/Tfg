@@ -32,7 +32,7 @@ public class InGameIU : MonoBehaviour
     {
         deathController.WriteDeaths();
         Time.timeScale = 1;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("InitialMenu");
     }
     public void OnPauseMenu()
     {
