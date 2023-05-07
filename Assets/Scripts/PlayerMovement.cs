@@ -11,6 +11,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("Layer Masks")]
     [SerializeField] private LayerMask groundLM;
 
+    [Header("Habilidades desbloqueadas")]
+    [SerializeField] private bool unlockedDash;
+    [SerializeField] private bool unlockedWallJump;
+    [SerializeField] private bool unlockedWallGrab;
+    [SerializeField] private bool unlockedClimbing;
+    [SerializeField] private bool unlockedBreakItems;
+
     [Header("Movement")]
     [SerializeField] private float movAcce;
     [SerializeField] private float maxMovSpeed;
@@ -21,14 +28,14 @@ public class PlayerMovement : MonoBehaviour
     private bool changeDir => (_rb.velocity.x > 0f && horDir < 0f) || (_rb.velocity.x < 0f && horDir > 0f);
     private bool wallGrab => onWall && !isGrounded && Input.GetButton("WallGrab");
     private bool wallSlide => onWall && !isGrounded && _rb.velocity.y < 0f;
-    public bool canMove => !wallGrab && !isClimbing;
+    public bool canMove => !wallGrab;
 
     [Header("Jump")]
     [SerializeField] private float jumpForce = 12.0f;
     [SerializeField] private float airDrag = 2.5f;
     [SerializeField] private float fallSpeed = 8f;
     [SerializeField] private float lowFallSpeed = 5f;
-    [SerializeField] private int nExtraJumps = 1;
+    [SerializeField] private int nExtraJumps = 0;
     [SerializeField] private float hangTime= 0.1f;
     [SerializeField] private float jumpBufferLen= 0.1f;
     private bool isJumping;
@@ -58,11 +65,11 @@ public class PlayerMovement : MonoBehaviour
     private float dashBufferCounter;
     private bool hasDashed = false;
     private bool isDashing;
-    private bool canDash => dashBufferCounter > 0.0f && !hasDashed;
+    private bool canDash => dashBufferCounter > 0.0f && !hasDashed && unlockedDash;
 
     [Header("Climbing")]
     [SerializeField] private float wallClimbingSpeed = 1.0f;
-    private bool canClimb = true;
+    private bool canClimb = false;
     public bool isClimbing;
 
     [Header ("Corner Correction")]
@@ -98,11 +105,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         CheckCollisions();
-        if (canDash) StartCoroutine(Dash(horDir, verDir));
+        if (canDash && unlockedDash) StartCoroutine(Dash(horDir, verDir));
         if (!isDashing)
         {
             if (canMove) MoveCharacter();
-            //if (canClimb && verDir!=0) Climb();
+            if (canClimb && verDir != 0 && unlockedClimbing) Climb();
             else _rb.velocity = Vector2.Lerp(_rb.velocity, (new Vector2(horDir * maxMovSpeed, _rb.velocity.y)), 0.5f * Time.fixedDeltaTime);
             if (isGrounded)
             {
@@ -127,12 +134,12 @@ public class PlayerMovement : MonoBehaviour
             }
             if (canJump)
             {
-                if (onWall && !isGrounded)
+                if (onWall && !isGrounded && unlockedWallJump)
                 {
                     WallJump();
                     Flip();
                 }
-                else
+                else if(isGrounded)
                 {
                     Jump(Vector2.up);
                 }
@@ -140,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
             }
             if (!isJumping)
             {
-                if (wallGrab) WallGrab();
+                if (wallGrab && unlockedWallGrab) WallGrab();
                 if (wallSlide) WallSlide();
             }
 
@@ -217,7 +224,7 @@ public class PlayerMovement : MonoBehaviour
     private void Climb()
     {
         isClimbing = true;
-        _rb.velocity = new Vector2(0, maxMovSpeed * wallSlideMod * verDir);
+        _rb.velocity = new Vector2(0.5f, maxMovSpeed * wallClimbingSpeed * verDir);
     }
     private void WallGrab()
     {
@@ -344,7 +351,19 @@ public class PlayerMovement : MonoBehaviour
 
         Gizmos.DrawLine(transform.position + wallRaycastOffset, transform.position + wallRaycastOffset + Vector3.right * wallRayCastLenght);
         Gizmos.DrawLine(transform.position + wallRaycastOffset, transform.position + wallRaycastOffset + Vector3.left * wallRayCastLenght);
-
-
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Climb"))
+        {
+            canClimb = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Climb"))
+        {
+            canClimb = false;
+        }
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - Platform
   - Slime
   - Cloud
+  - Climb
   layers:
   - Default
   - TransparentFX

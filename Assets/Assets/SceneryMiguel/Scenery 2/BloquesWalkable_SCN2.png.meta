@@ -1,0 +1,685 @@
+fileFormatVersion: 2
+guid: ad83b4e4637102445a6a2b86253158a5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3719615505772003194
+    second: BloquesWalkable_SCN2_0
+  - first:
+      213: 4326554321077635958
+    second: BloquesWalkable_SCN2_1
+  - first:
+      213: -1233042728422713236
+    second: BloquesWalkable_SCN2_2
+  - first:
+      213: 4742554235092150958
+    second: BloquesWalkable_SCN2_3
+  - first:
+      213: 8111831427569341228
+    second: BloquesWalkable_SCN2_4
+  - first:
+      213: 2768761054456324102
+    second: BloquesWalkable_SCN2_5
+  - first:
+      213: -6128315673970933536
+    second: BloquesWalkable_SCN2_6
+  - first:
+      213: 4453894838900893429
+    second: BloquesWalkable_SCN2_7
+  - first:
+      213: 2962662156587585620
+    second: BloquesWalkable_SCN2_8
+  - first:
+      213: -2757254368222219280
+    second: BloquesWalkable_SCN2_9
+  - first:
+      213: -2834982365746249801
+    second: BloquesWalkable_SCN2_10
+  - first:
+      213: -1271623030201890394
+    second: BloquesWalkable_SCN2_11
+  - first:
+      213: 1013560775509814104
+    second: BloquesWalkable_SCN2_12
+  - first:
+      213: 2343445188664288767
+    second: BloquesWalkable_SCN2_13
+  - first:
+      213: 1721531688837852456
+    second: BloquesWalkable_SCN2_14
+  - first:
+      213: -933964942477304339
+    second: BloquesWalkable_SCN2_15
+  - first:
+      213: -2112083361158749746
+    second: BloquesWalkable_SCN2_16
+  - first:
+      213: -8408097966992228730
+    second: BloquesWalkable_SCN2_17
+  - first:
+      213: -3872243464326058554
+    second: BloquesWalkable_SCN2_18
+  - first:
+      213: -5683499457585824730
+    second: BloquesWalkable_SCN2_19
+  - first:
+      213: 8249869418843147218
+    second: BloquesWalkable_SCN2_20
+  - first:
+      213: 1643140742960987071
+    second: BloquesWalkable_SCN2_21
+  - first:
+      213: 2324724556407115249
+    second: BloquesWalkable_SCN2_22
+  - first:
+      213: 8425140296378219923
+    second: BloquesWalkable_SCN2_23
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 65
+        width: 31
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7f339a589abe9330800000000000000
+      internalID: 3719615505772003194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 51
+        width: 30
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b83416b320b0c30800000000000000
+      internalID: 4326554321077635958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 85
+        width: 7
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c685c73eb2a53eee0800000000000000
+      internalID: -1233042728422713236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 80
+        width: 48
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaa21be13ffe0d140800000000000000
+      internalID: 4742554235092150958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_4
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 83
+        width: 40
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c23de1e74b3039070800000000000000
+      internalID: 8111831427569341228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_5
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 49
+        width: 30
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6002ece628d9c6620800000000000000
+      internalID: 2768761054456324102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_6
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 88
+        width: 133
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e0018d1d59d3faa0800000000000000
+      internalID: -6128315673970933536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_7
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 76
+        width: 53
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f622ab12c96fcd30800000000000000
+      internalID: 4453894838900893429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_8
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 76
+        width: 43
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45055e8d88d7d1920800000000000000
+      internalID: 2962662156587585620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_9
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 0
+        width: 60
+        height: 74
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f378bab2c34cb9d0800000000000000
+      internalID: -2757254368222219280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_10
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 55
+        width: 60
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bfb2390f8e18a8d0800000000000000
+      internalID: -2834982365746249801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_11
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 57
+        width: 9
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a94c9467994a5ee0800000000000000
+      internalID: -1271623030201890394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_12
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 57
+        width: 24
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85b288eb724e01e00800000000000000
+      internalID: 1013560775509814104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_13
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 57
+        width: 8
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff5eee4abf6958020800000000000000
+      internalID: 2343445188664288767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 46
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82d22ce23fb14e710800000000000000
+      internalID: 1721531688837852456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_15
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 33
+        width: 43
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dedd8fa45d3e903f0800000000000000
+      internalID: -933964942477304339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_16
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 6
+        width: 35
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec1ae129f5f50b2e0800000000000000
+      internalID: -2112083361158749746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_17
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 0
+        width: 87
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e7eb0727f605b80800000000000000
+      internalID: -8408097966992228730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_18
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 0
+        width: 20
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cd6401d517034ac0800000000000000
+      internalID: -3872243464326058554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_19
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 30
+        width: 16
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62cb8751b572021b0800000000000000
+      internalID: -5683499457585824730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_20
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 11
+        width: 30
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db0189d68c6d7270800000000000000
+      internalID: 8249869418843147218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_21
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 11
+        width: 18
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbb392ccccb9dc610800000000000000
+      internalID: 1643140742960987071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_22
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 0
+        width: 16
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fd0649caa4134020800000000000000
+      internalID: 2324724556407115249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloquesWalkable_SCN2_23
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 81
+        width: 77
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39df374167c1ce470800000000000000
+      internalID: 8425140296378219923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
