@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class IOController : MonoBehaviour
@@ -29,6 +30,28 @@ public class IOController : MonoBehaviour
         foreach (var death in deathList)
         {
             File.AppendAllText(path, death.Key + "-" + death.Value +"\n");
+        }
+    }
+    public List<string> ReadSkills()
+    {
+        string path = "Assets/Resources/Skills.txt";
+        List<string> list = new List<string>();
+        string[] content = File.ReadAllLines(path);
+        for (int i = 0; i < content.Length; i++)
+        {
+            string line = content[i];
+            list.Add(line);
+        }
+
+        return list;
+    }
+    public void WriteSkills(List<string> list)
+    {
+        string path = "Assets/Resources/Skills.txt";
+        File.WriteAllText(path, "");
+        foreach (var skill in list)
+        {
+            File.AppendAllText(path, skill + "\n");
         }
     }
 }

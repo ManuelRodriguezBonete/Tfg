@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class InGameIU : MonoBehaviour
 {
+    [SerializeField] GameObject player;
+
     [SerializeField] DeathControllerScript deathController;
     [SerializeField] InGameController inGameController;
 
@@ -43,6 +45,7 @@ public class InGameIU : MonoBehaviour
     public void GoInitialMenu()
     {
         deathController.WriteDeaths();
+        player.GetComponent<PlayerMovement>().WriteSkills();
         Time.timeScale = 1;
         SceneManager.LoadScene("InitialMenu");
     }

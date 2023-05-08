@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Components")]
     Rigidbody2D _rb;
     Animator animator;
+    [SerializeField] IOController iocontroller;
 
     [Header("Layer Masks")]
     [SerializeField] private LayerMask groundLM;
@@ -35,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float airDrag = 2.5f;
     [SerializeField] private float fallSpeed = 8f;
     [SerializeField] private float lowFallSpeed = 5f;
-    [SerializeField] private int nExtraJumps = 0;
+    [SerializeField] private int nExtraJumps = 1;
     [SerializeField] private float hangTime= 0.1f;
     [SerializeField] private float jumpBufferLen= 0.1f;
     private bool isJumping;
@@ -67,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isDashing;
     private bool canDash => dashBufferCounter > 0.0f && !hasDashed && unlockedDash;
 
+    
+
     [Header("Climbing")]
     [SerializeField] private float wallClimbingSpeed = 1.0f;
     private bool canClimb = false;
@@ -78,12 +81,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector3 innerRayOffset;
     private bool canCorner;
 
+    public bool UnlockedBreakItems { get => unlockedBreakItems; set => unlockedBreakItems = value; }
+    public bool UnlockedClimbing { get => unlockedClimbing; set => unlockedClimbing = value; }
+    public bool UnlockedWallGrab { get => unlockedWallGrab; set => unlockedWallGrab = value; }
+    public bool UnlockedDash { get => unlockedDash; set => unlockedDash = value; }
+    public bool UnlockedWallJump { get => unlockedWallJump; set => unlockedWallJump = value; }
+    public int NExtraJumps { get => nExtraJumps; set => nExtraJumps = value; }
+
+    private List<string> skills;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        skills = iocontroller.ReadSkills();
+        foreach (string skill in skills) { UnlockSkill(skill, true); }
     }
 
     void Update()
@@ -139,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
                     WallJump();
                     Flip();
                 }
-                else if(isGrounded)
+                else if(isGrounded || !onWall)
                 {
                     Jump(Vector2.up);
                 }
@@ -224,7 +237,7 @@ public class PlayerMovement : MonoBehaviour
     private void Climb()
     {
         isClimbing = true;
-        _rb.velocity = new Vector2(0.5f, maxMovSpeed * wallClimbingSpeed * verDir);
+        _rb.velocity = new Vector2(horDir, maxMovSpeed * wallClimbingSpeed * verDir);
     }
     private void WallGrab()
     {
@@ -365,5 +378,20 @@ public class PlayerMovement : MonoBehaviour
         {
             canClimb = false;
         }
+    }
+    public void UnlockSkill(string skill, bool initial)
+    {
+        if (skill == "Dash") unlockedDash = true;
+        if (skill == "WallJump") unlockedWallJump = true;
+        if (skill == "WallGrab") unlockedWallGrab = true;
+        if (skill == "Climbing") UnlockedClimbing = true;
+        if (skill == "BreakItems") UnlockedBreakItems = true;
+        if (skill == "ExtraJump") nExtraJumps = 1;
+
+        if (!initial) skills.Add(skill);
+    }
+    public void WriteSkills()
+    {
+        iocontroller.WriteSkills(skills);
     }
 }
