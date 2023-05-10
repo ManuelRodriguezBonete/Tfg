@@ -19,7 +19,7 @@ public class DoorMechanismScript : MonoBehaviour
     
     void Update()
     {
-        keydown = Input.GetKeyDown(KeyCode.E);
+        keydown = Input.GetButtonDown("Interactuar");
         
         if (keydown && col) {
             if (closed)

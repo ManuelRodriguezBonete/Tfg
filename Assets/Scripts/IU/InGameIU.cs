@@ -33,11 +33,11 @@ public class InGameIU : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && onPause == false)
+        if (Input.GetButtonDown("Pausa") && onPause == false)
         {
             OnPauseMenu();
         }
-        else if(Input.GetKeyDown(KeyCode.Escape) && onPause == true)
+        else if(Input.GetButtonDown("Pausa") && onPause == true)
         {
             OffPauseMenu();
         }

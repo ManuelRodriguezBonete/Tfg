@@ -10,16 +10,17 @@ TagManager:
   - Slime
   - Cloud
   - Climb
+  - CameraPoint
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
   - 
-  - Ground
+  - 
   - 
   - 
   - 

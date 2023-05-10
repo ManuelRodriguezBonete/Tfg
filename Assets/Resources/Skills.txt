@@ -2,3 +2,16 @@ Dash
 ExtraJump
 BreakItems
 Climbing
+Climbing
+WallGrab
+ExtraJump
+BreakItems
+Climbing
+WallGrab
+ExtraJump
+BreakItems
+Climbing
+WallGrab
+WallJump
+Dash
+ExtraJump

@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D _rb;
     Animator animator;
     [SerializeField] IOController iocontroller;
+    [SerializeField] Inventory inventory;
 
     [Header("Layer Masks")]
     [SerializeField] private LayerMask groundLM;
@@ -88,17 +89,15 @@ public class PlayerMovement : MonoBehaviour
     public bool UnlockedWallJump { get => unlockedWallJump; set => unlockedWallJump = value; }
     public int NExtraJumps { get => nExtraJumps; set => nExtraJumps = value; }
 
-    private List<string> skills;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        skills = iocontroller.ReadSkills();
-        foreach (string skill in skills) { UnlockSkill(skill, true); }
+        foreach (string skill in inventory.skillList) { UnlockSkill(skill, true); }
     }
-
+    
     void Update()
     {
         horDir = GetInput().x;
@@ -387,11 +386,10 @@ public class PlayerMovement : MonoBehaviour
         if (skill == "Climbing") UnlockedClimbing = true;
         if (skill == "BreakItems") UnlockedBreakItems = true;
         if (skill == "ExtraJump") nExtraJumps = 1;
-
-        if (!initial) skills.Add(skill);
+ 
     }
     public void WriteSkills()
     {
-        iocontroller.WriteSkills(skills);
+        inventory.SaveSkills();
     }
 }

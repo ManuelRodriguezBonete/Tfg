@@ -13,22 +13,29 @@ public class InventoryItem : MonoBehaviour
     [SerializeField] string key;
 
     [SerializeField] Inventory inventory;
+    private bool unlocked = false;
     void Start()
     {
-        for (int i = 0; i < inventory.skillList.Count; i++)
-        {
-            if (key == inventory.skillList[i])
-            {
-                nombreSkill.text = key;
-                inter.gameObject.SetActive(false);
-                icono_Skill.gameObject.SetActive(true);
-            }
-        }
+        UpdateInventory();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateInventory()
     {
+        if (!unlocked)
+        {
+            for (int i = 0; i < inventory.skillList.Count; i++)
+            {
+                if (key == inventory.skillList[i])
+                {
+                    nombreSkill.text = key;
+                    inter.gameObject.SetActive(false);
+                    icono_Skill.gameObject.SetActive(true);
+                    unlocked = true;
+                }
+            }
+        }
         
     }
+
+
 }
