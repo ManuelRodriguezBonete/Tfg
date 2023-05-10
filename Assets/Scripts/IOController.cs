@@ -54,4 +54,18 @@ public class IOController : MonoBehaviour
             File.AppendAllText(path, skill + "\n");
         }
     }
+    public Dictionary<int, string> ReadNotasSecretas()
+    {
+        string path = "Assets/Resources/NotasSecretas.txt";
+        Dictionary<int, string> deathDict = new Dictionary<int, string>();
+
+        string[] content = File.ReadAllLines(path);
+        for (int i = 0; i < content.Length; i++)
+        {
+            string[] line = content[i].Split('-');
+            deathDict.Add(Convert.ToInt32(line[0]), line[1]);
+        }
+
+        return deathDict;
+    }
 }
