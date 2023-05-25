@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
     private void Awake()
     {
         //transform.position = target.transform.position;
-        target= transform.position;
+        target = transform.position;
     
     }
     private void LateUpdate()
