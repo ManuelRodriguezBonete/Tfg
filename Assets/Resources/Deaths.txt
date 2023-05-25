@@ -1,6 +1,2 @@
-Total-67
-Static Spike-22
-Falling Spike-9
-Poison Cloud-11
-Slime-18
-Falling-5
+Falling-1
+Total-1

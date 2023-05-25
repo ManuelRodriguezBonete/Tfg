@@ -2604,7 +2604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7523195594627238354, guid: 61437ca5c4db88c4a8cb725b67a17fcf, type: 3}
       propertyPath: key
-      value: Slime Verde
+      value: Suicide
       objectReference: {fileID: 0}
     - target: {fileID: 7523195594627238354, guid: 61437ca5c4db88c4a8cb725b67a17fcf, type: 3}
       propertyPath: controller

@@ -9,22 +9,6 @@ public class UnlockSkillPlayerScript : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] Inventory inventory;
 
-    private bool first = false;
-    void Start()
-    {
-        
-    }
-    private void OnEnable()
-    {
-        
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnRenderObject()
     {

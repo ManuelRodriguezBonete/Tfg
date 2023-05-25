@@ -22,6 +22,13 @@ public class DeathControllerScript : MonoBehaviour
         ReadDeaths();
 
     }
+    private void Update()
+    {
+        if (Input.GetButtonDown("Suicide")) 
+        {
+            KillPlayer("Suicide");
+        }
+    }
     public void KillPlayer(string key)
     {
         player.transform.position = spawnPoint;

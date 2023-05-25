@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,6 +12,7 @@ public class InventoryItem : MonoBehaviour
     [SerializeField] private Image icono_Skill;
 
     [SerializeField] string key;
+    [SerializeField] string tipoObjeto;
 
     [SerializeField] Inventory inventory;
     private bool unlocked = false;
@@ -21,7 +23,7 @@ public class InventoryItem : MonoBehaviour
 
     public void UpdateInventory()
     {
-        if (!unlocked)
+        if (!unlocked && tipoObjeto =="Skill")
         {
             for (int i = 0; i < inventory.skillList.Count; i++)
             {
@@ -32,6 +34,16 @@ public class InventoryItem : MonoBehaviour
                     icono_Skill.gameObject.SetActive(true);
                     unlocked = true;
                 }
+            }
+        }
+        else if (tipoObjeto == "NotaSecreta")
+        {
+            int keyInt = Int32.Parse(key);
+            if (inventory.notasSecretasDict.TryGetValue(keyInt, out var texto))
+            {
+                nombreSkill.text = "Nota nº: " + keyInt;
+                inter.gameObject.SetActive(false);
+                icono_Skill.gameObject.SetActive(true);
             }
         }
         

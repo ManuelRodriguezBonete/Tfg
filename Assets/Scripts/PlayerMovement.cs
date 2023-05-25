@@ -390,6 +390,6 @@ public class PlayerMovement : MonoBehaviour
     }
     public void WriteSkills()
     {
-        inventory.SaveSkills();
+        inventory.SaveGame();
     }
 }

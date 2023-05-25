@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class InGameIU : MonoBehaviour
 
     [SerializeField] DeathControllerScript deathController;
     [SerializeField] InGameController inGameController;
+    [SerializeField] Inventory inventory;
 
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject inventarioMenu;
@@ -85,6 +87,17 @@ public class InGameIU : MonoBehaviour
         inGameController.StopGame();
         FoundTextMenu.SetActive(true);
         onPause = true;
+    }
+    public void OnTextFound(int key)
+    {
+        
+        if(inventory.notasSecretasDict.TryGetValue(key, out string value))
+        {
+            FoundTextMenu.SetActive(true);
+            contenidoNota.text = value;
+            notaSecretaNumero.text = key.ToString();
+        }
+        
     }
     public void OffTextFound()
     {
