@@ -8,15 +8,19 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private float speed;
     Vector2 target;
     private int currentPos = 0;
+    private int numPosiciones;
 
     void Start()
     {
-        target = posiciones[currentPos].position;
+        numPosiciones = posiciones.Count;
+        if(numPosiciones>0)
+            target = posiciones[currentPos].position;
     }
 
     void Update()
     {
-        CheckPos();
+        if (numPosiciones > 0)
+            CheckPos();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

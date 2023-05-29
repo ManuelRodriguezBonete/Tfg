@@ -11,6 +11,7 @@ public class ChangeRoom : MonoBehaviour
     [SerializeField] private bool horizontal;
     [SerializeField] private int sizeAnterior = 7;
     [SerializeField] private int sizePosterior = 7;
+    [SerializeField] private bool animacion;
     void Start()
     {
         
@@ -25,8 +26,7 @@ public class ChangeRoom : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            //if (collision.gameObject.)
-            //{
+            controller.SetAnimacion(animacion);
             if (horizontal)
             {
                 float difX = collision.gameObject.transform.position.x - this.transform.position.x;
@@ -34,6 +34,7 @@ public class ChangeRoom : MonoBehaviour
                 {
                     controller.SetTarget(salaPosterior.transform.position);
                     controller.SetSize(sizePosterior);
+                    
                 }
                 else
                 {
@@ -55,6 +56,7 @@ public class ChangeRoom : MonoBehaviour
                     controller.SetSize(sizeAnterior);
                 }
             }
+            
             
             
         }
