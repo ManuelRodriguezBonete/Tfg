@@ -95,7 +95,11 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        foreach (string skill in inventory.skillList) { UnlockSkill(skill, true); }
+        if (inventory != null)
+        {
+            foreach (string skill in inventory.skillList) { UnlockSkill(skill, true); }
+        }
+        
     }
     
     void Update()

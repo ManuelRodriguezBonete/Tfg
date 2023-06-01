@@ -15,13 +15,13 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float speed = 15;
     private bool animacion = true;
     private Vector3 target;
-    private int currentPos = 0;
+    //private int currentPos = 0;
     [SerializeField] private int numTarget = 0;
     [SerializeField] private int numSize = 7;
     private int size;
 
     //Solo se usaría en el método 2
-    Vector3 velocity;
+    //Vector3 velocity;
     private void Awake()
     {
         //transform.position = target.transform.position;

@@ -35,7 +35,7 @@ public class InitialMenuController : MonoBehaviour
 
     public void GoGameScene()
     {
-        SceneManager.LoadScene("Pruebas 1");
+        SceneManager.LoadScene("Level 1");
     }
     public void CloseGame()
     {
@@ -43,10 +43,7 @@ public class InitialMenuController : MonoBehaviour
     }
     public void OnCredits()
     {
-        mainMenu.SetActive(false);
-        settingsMenu.SetActive(false);
-        statsMenu.SetActive(false);
-        creditMenu.SetActive(true);
+        SceneManager.LoadScene("Creditos");
     }
     public void OnMainMenu()
     {

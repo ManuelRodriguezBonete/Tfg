@@ -46,6 +46,7 @@ public class InGameIU : MonoBehaviour
         else if(Input.GetButtonDown("Pausa") && onPause == true)
         {
             OffPauseMenu();
+            OffTextFound();
         }
     }
     public void GoInitialMenu()
