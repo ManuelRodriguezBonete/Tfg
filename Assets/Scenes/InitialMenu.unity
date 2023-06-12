@@ -4776,6 +4776,8 @@ MonoBehaviour:
   settingsMenu: {fileID: 947113288}
   controller: {fileID: 1697835109}
   muertesTotales: {fileID: 977503753}
+  stat1: {fileID: 1993223327}
+  main1: {fileID: 1658041220}
 --- !u!4 &1697835108
 Transform:
   m_ObjectHideFlags: 0
@@ -5173,10 +5175,10 @@ MonoBehaviour:
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
+    m_NormalTrigger: Highlighted
+    m_HighlightedTrigger: Normal
+    m_PressedTrigger: Normal
+    m_SelectedTrigger: Normal
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 1993223328}

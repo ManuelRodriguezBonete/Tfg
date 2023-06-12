@@ -12,7 +12,7 @@ public class ChangeRoom : MonoBehaviour
     [SerializeField] private int sizePosterior = 7;
     [SerializeField] private bool animacion;
     
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -20,7 +20,7 @@ public class ChangeRoom : MonoBehaviour
             if (horizontal)
             {
                 float difX = collision.gameObject.transform.position.x - this.transform.position.x;
-                if (difX < 0)
+                if (difX > 0)
                 {
                     controller.SetTarget(salaPosterior.transform.position);
                     controller.SetSize(sizePosterior);
@@ -35,7 +35,7 @@ public class ChangeRoom : MonoBehaviour
             else
             {
                 float difY = collision.gameObject.transform.position.y - this.transform.position.y;
-                if (difY < 0)
+                if (difY > 0)
                 {
                     controller.SetTarget(salaPosterior.transform.position);
                     controller.SetSize(sizePosterior);
@@ -46,7 +46,8 @@ public class ChangeRoom : MonoBehaviour
                     controller.SetSize(sizeAnterior);
                 }
             }
-            
+            int aux = controller.GetCameraPoint();
+            Debug.Log(aux);
             
             
         }

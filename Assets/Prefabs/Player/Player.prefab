@@ -150,6 +150,7 @@ MonoBehaviour:
   unlockedWallGrab: 0
   unlockedClimbing: 0
   unlockedBreakItems: 0
+  controlsOK: 1
   movAcce: 90
   maxMovSpeed: 11
   groundDrag: 10
@@ -158,9 +159,10 @@ MonoBehaviour:
   airDrag: 4
   fallSpeed: 8
   lowFallSpeed: 5
-  nExtraJumps: 1
+  nExtraJumps: 0
   hangTime: 0.1
   jumpBufferLen: 0.1
+  extraJumpsValue: 0
   groundRaycastLength: 0.09
   groundRaycastOffset: {x: 0.31, y: 0, z: 0}
   wallRayCastLenght: 0.67
@@ -169,9 +171,12 @@ MonoBehaviour:
   wallJumpXVel: 0.2
   onWall: 0
   onRightWall: 0
-  dashSpeed: 20
-  dashLength: 0.5
-  dashBufferLength: 0.2
+  dashSpeed: 18
+  dashLength: 0.16
+  dashBufferLength: 0.16
+  dashBufferCounter: 0
+  extraDashValue: 1
+  hasDashed: 0
   wallClimbingSpeed: 0.36
   isClimbing: 0
   topRayCastLen: 0.85

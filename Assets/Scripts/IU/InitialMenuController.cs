@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InitialMenuController : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class InitialMenuController : MonoBehaviour
     [SerializeField] IOController controller;
     [SerializeField] public Dictionary<string, int> deathDict;
     [SerializeField] private TextMeshProUGUI muertesTotales;
+
+    [SerializeField] Button stat1;
+    [SerializeField] Button main1;
 
 
     private void Awake()
@@ -35,7 +39,7 @@ public class InitialMenuController : MonoBehaviour
 
     public void GoGameScene()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene(PlayerPrefs.GetString("Level"));
     }
     public void CloseGame()
     {
@@ -47,6 +51,7 @@ public class InitialMenuController : MonoBehaviour
     }
     public void OnMainMenu()
     {
+        main1.Select();
         mainMenu.SetActive(true);
         settingsMenu.SetActive(false);
         statsMenu.SetActive(false);
@@ -54,6 +59,7 @@ public class InitialMenuController : MonoBehaviour
     }
     public void OnStatsMenu()
     {
+        stat1.Select();
         mainMenu.SetActive(false);
         settingsMenu.SetActive(false);
         statsMenu.SetActive(true);

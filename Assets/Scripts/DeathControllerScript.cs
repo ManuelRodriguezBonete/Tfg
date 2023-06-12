@@ -16,6 +16,8 @@ public class DeathControllerScript : MonoBehaviour
 
     private Dictionary<string, int> deathDict;
     private Vector3 spawnPoint;
+    private float timer = 0.5f;
+    public bool death;
 
     private void Start()
     {
@@ -28,10 +30,25 @@ public class DeathControllerScript : MonoBehaviour
         {
             KillPlayer("Suicide");
         }
+        if (player.GetComponent<PlayerMovement>().controlsOK == false)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                timer = 0.5f;
+                player.GetComponent<PlayerMovement>().controlsOK = true;
+                player.GetComponent<PlayerMovement>().extraDashValue = 0;
+                death = false;
+            }
+        }
+        
     }
     public void KillPlayer(string key)
     {
+        death = true;
         player.transform.position = spawnPoint;
+        player.GetComponent<PlayerMovement>().controlsOK = false;
+        player.GetComponent<Rigidbody2D>().velocity= Vector3.zero;
         if (deathDict.TryGetValue(key, out var auxDeath))
         {
             auxDeath++;
@@ -50,7 +67,8 @@ public class DeathControllerScript : MonoBehaviour
 
     public void SavePoint(Vector3 lastPosition)
     {
-        spawnPoint = lastPosition;
+        spawnPoint.x = lastPosition.x;
+        spawnPoint.y = lastPosition.y+0.5f;
     }
     private void ReadDeaths()
     {
@@ -59,5 +77,9 @@ public class DeathControllerScript : MonoBehaviour
     public  void WriteDeaths()
     {
         ioController.WriteDeaths(deathDict);   
+    }
+    public Vector3 GetSpawnPoint()
+    {
+        return spawnPoint;
     }
 }

@@ -4,14 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class InGameIU : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    [SerializeField] GameObject player; 
+    private Camera camera;
+    private CameraController camController;
 
     [SerializeField] DeathControllerScript deathController;
     [SerializeField] InGameController inGameController;
     [SerializeField] Inventory inventory;
+
+    [SerializeField] GameObject teleportMenu;
 
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject inventarioMenu;
@@ -25,6 +30,9 @@ public class InGameIU : MonoBehaviour
     [SerializeField] Button ajustesButton;
     [SerializeField] Button exitButton;
 
+    [SerializeField] Button aux1;
+    [SerializeField] Button aux2;
+
     [SerializeField] Text notaSecretaNumero;
     [SerializeField] Text contenidoNota;
 
@@ -34,6 +42,8 @@ public class InGameIU : MonoBehaviour
     void Start()
     {
         onPause = false;
+        camera = Camera.main;
+        camController = camera.GetComponent<CameraController>();
     }
 
     // Update is called once per frame
@@ -51,10 +61,37 @@ public class InGameIU : MonoBehaviour
     }
     public void GoInitialMenu()
     {
-        deathController.WriteDeaths();
-        player.GetComponent<PlayerMovement>().WriteSkills();
+        SaveData();
         Time.timeScale = 1;
         SceneManager.LoadScene("InitialMenu");
+    }
+    private void SaveData()
+    {
+        //Guardamos las muertes
+        deathController.WriteDeaths();
+        //Guardamos las skills
+        player.GetComponent<PlayerMovement>().WriteSkills();
+        //Guardamos la información del nivel actual
+        if (SceneManager.GetActiveScene().name != "Creditos")
+        {
+            PlayerPrefs.SetString("Level", SceneManager.GetActiveScene().name);
+            PlayerPrefs.SetInt("CameraPoint", camController.GetCameraPoint());
+            PlayerPrefs.SetInt("CameraSize", camController.GetSize());
+            Vector3 aux = deathController.GetSpawnPoint();
+            if (aux.x == 0 && aux.y == 00)
+            {
+                PlayerPrefs.SetFloat("Player X", player.transform.position.x);
+                PlayerPrefs.SetFloat("Player Y", player.transform.position.y);
+            }
+            else
+            {
+                PlayerPrefs.SetFloat("Player X", aux.x);
+                PlayerPrefs.SetFloat("Player Y", aux.y);
+            }
+            
+            PlayerPrefs.Save();
+        }
+        
     }
     public void OnPauseMenu()
     {
@@ -94,17 +131,20 @@ public class InGameIU : MonoBehaviour
         
         if(inventory.notasSecretasDict.TryGetValue(key, out string value))
         {
+
             FoundTextMenu.SetActive(true);
             contenidoNota.text = value;
             notaSecretaNumero.text = key.ToString();
+            aux2.Select();
         }
         
     }
     public void OffTextFound()
     {
-        inGameController.ReanudeGame();
+        //inGameController.ReanudeGame();
         FoundTextMenu.SetActive(false);
         onPause = false;
+        inventarioButton.Select();
     }
     public void OnMapMenu()
     {
@@ -126,5 +166,36 @@ public class InGameIU : MonoBehaviour
         mapMenu.SetActive(false);
         ajustesMenu.SetActive(false);
         exitMenu.SetActive(true);
+    }
+
+    public void OnViajeRapido(string key)
+    {
+        if (inventory.teleportDict.TryGetValue(key, out string value))
+        {
+            Debug.Log(value);
+            string[] cadena = value.Split('_');
+            PlayerPrefs.SetString("Level", "Level " + cadena[0]);
+            PlayerPrefs.SetInt("CameraPoint", Convert.ToInt32(cadena[1]));
+            PlayerPrefs.SetInt("CameraSize", Convert.ToInt32(cadena[2]));
+            PlayerPrefs.SetFloat("Player X", Convert.ToSingle(cadena[3]));
+            PlayerPrefs.SetFloat("Player Y", Convert.ToSingle(cadena[4]));
+            PlayerPrefs.Save();
+            teleportMenu.SetActive(false);
+            inGameController.ReanudeGame();
+            deathController.WriteDeaths();
+            player.GetComponent<PlayerMovement>().WriteSkills();
+            SceneManager.LoadScene("Level " + cadena[0]);
+        }
+    }
+    public void OnViajeRapido()
+    {
+        inGameController.StopGame();
+        teleportMenu.SetActive(true);
+        aux1.Select();
+    }
+    public void OffViajeRapido()
+    {
+        inGameController.ReanudeGame();
+        teleportMenu.SetActive(false);
     }
 }

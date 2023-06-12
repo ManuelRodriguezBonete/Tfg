@@ -1,2 +1,5 @@
-Falling-1
-Total-1
+Falling-69
+Total-96
+Static Spike-22
+Snake-4
+Bat-1

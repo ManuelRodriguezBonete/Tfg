@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool unlockedBreakItems;
 
     [Header("Movement")]
+    public bool controlsOK = true;  
     [SerializeField] private float movAcce;
     [SerializeField] private float maxMovSpeed;
     [SerializeField] private float groundDrag;
@@ -42,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpBufferLen= 0.1f;
     private bool isJumping;
     private bool hasLanded;
-    private int extraJumpsValue;
+    public int extraJumpsValue;
     private float hangTimeCounter;
     private float jumpBufferCounter;
     private bool canJump => jumpBufferCounter > 0.0f && (hangTimeCounter > 0f || extraJumpsValue > 0 || onWall);
@@ -64,10 +67,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashSpeed = 15f;
     [SerializeField] private float dashLength = .3f;
     [SerializeField] private float dashBufferLength = 0.1f;
-    private float dashBufferCounter;
-    private bool hasDashed = false;
+    public float dashBufferCounter;
+    public int extraDashValue = 1;
+    public bool hasDashed = false;
     private bool isDashing;
-    private bool canDash => dashBufferCounter > 0.0f && !hasDashed && unlockedDash;
+    //private bool canDash => dashBufferCounter > 0.0f && !hasDashed && unlockedDash;
+    private bool canDash => dashBufferCounter > 0.0f && extraDashValue > 0 && unlockedDash;
 
     
 
@@ -99,76 +104,94 @@ public class PlayerMovement : MonoBehaviour
         {
             foreach (string skill in inventory.skillList) { UnlockSkill(skill, true); }
         }
+        if (SceneManager.GetActiveScene().name != "Creditos")
+        {
+            Vector3 aux = new Vector3(PlayerPrefs.GetFloat("Player X"), PlayerPrefs.GetFloat("Player Y"), 0);
+            transform.position = aux;
+        }
         
     }
     
     void Update()
     {
-        horDir = GetInput().x;
-        verDir = GetInput().y;
-        Animate();
+        if (controlsOK)
+        {
+            horDir = GetInput().x;
+            verDir = GetInput().y;
+            Animate();
+
+            //Jump
+            if (Input.GetButtonDown("Jump")) jumpBufferCounter = jumpBufferLen;
+            else jumpBufferCounter -= Time.deltaTime;
+
+            //Dash
+            if (Input.GetButtonDown("Dash")) dashBufferCounter = dashBufferLength;
+            else dashBufferCounter -= Time.deltaTime;
+        }
         
-        //Jump
-        if (Input.GetButtonDown("Jump")) jumpBufferCounter = jumpBufferLen;
-        else jumpBufferCounter -= Time.deltaTime;
-        
-        //Dash
-        if (Input.GetButtonDown("Dash")) dashBufferCounter = dashBufferLength;
-        else dashBufferCounter -= Time.deltaTime;
 
     }
     
     private void FixedUpdate()
     {
         CheckCollisions();
-        if (canDash && unlockedDash) StartCoroutine(Dash(horDir, verDir));
-        if (!isDashing)
+        if (controlsOK)
         {
-            if (canMove) MoveCharacter();
-            if (canClimb && verDir != 0 && unlockedClimbing) Climb();
-            else _rb.velocity = Vector2.Lerp(_rb.velocity, (new Vector2(horDir * maxMovSpeed, _rb.velocity.y)), 0.5f * Time.fixedDeltaTime);
-            if (isGrounded)
+            if (canDash && unlockedDash)
             {
-                animator.SetBool("IsJumping", false);
-                if (hasLanded == true)
-                {
-                    animator.SetBool("Landed", true);
-                    hasLanded= false;
-                }
-                extraJumpsValue = nExtraJumps;
-                hangTimeCounter = hangTime;
-                ApplyGroundLinearDrag();
-                hasDashed = false;
-                isClimbing = false;
+                extraDashValue = 0;
+                StartCoroutine(Dash(horDir, verDir));
             }
-            else
+            if (!isDashing)
             {
-                ApplyAirLinearDrag();
-                FallMultiplier();
-                hangTimeCounter -= Time.fixedDeltaTime;
-                if (!onWall || _rb.velocity.y < 0f) isJumping = false;
-            }
-            if (canJump)
-            {
-                if (onWall && !isGrounded && unlockedWallJump)
+                if (canMove) MoveCharacter();
+                if (canClimb && verDir != 0 && unlockedClimbing) Climb();
+                else _rb.velocity = Vector2.Lerp(_rb.velocity, (new Vector2(horDir * maxMovSpeed, _rb.velocity.y)), 0.5f * Time.fixedDeltaTime);
+                if (isGrounded)
                 {
-                    WallJump();
-                    Flip();
+                    animator.SetBool("IsJumping", false);
+                    if (hasLanded == true)
+                    {
+                        animator.SetBool("Landed", true);
+                        hasLanded = false;
+                    }
+                    extraJumpsValue = nExtraJumps;
+                    hangTimeCounter = hangTime;
+                    ApplyGroundLinearDrag();
+                    extraDashValue = 1;
+                    hasDashed = false;
+                    isClimbing = false;
                 }
-                else if(isGrounded || !onWall)
+                else
                 {
-                    Jump(Vector2.up);
+                    ApplyAirLinearDrag();
+                    FallMultiplier();
+                    hangTimeCounter -= Time.fixedDeltaTime;
+                    if (!onWall || _rb.velocity.y < 0f) isJumping = false;
+                }
+                if (canJump)
+                {
+                    if (onWall && !isGrounded && unlockedWallJump)
+                    {
+                        WallJump();
+                        Flip();
+                    }
+                    else if (isGrounded || !onWall)
+                    {
+                        Jump(Vector2.up);
+                    }
+
+                }
+                if (!isJumping)
+                {
+                    if (wallGrab && unlockedWallJump) WallGrab();
+                    if (wallSlide) WallSlide();
                 }
 
             }
-            if (!isJumping)
-            {
-                if (wallGrab && unlockedWallGrab) WallGrab();
-                if (wallSlide) WallSlide();
-            }
-
+            if (canCorner) CornerCorrect(_rb.velocity.y);
         }
-        if (canCorner) CornerCorrect(_rb.velocity.y);
+        
 
     }
     private static Vector2 GetInput()
@@ -209,6 +232,7 @@ public class PlayerMovement : MonoBehaviour
         hasDashed = true;
         isDashing = true;
         isJumping = false;
+        
 
         _rb.velocity = Vector2.zero;
         _rb.gravityScale = 0f;
@@ -219,12 +243,12 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             if (facingRight) dir = new Vector2(1, 0);
-            else dir = new Vector2(-1,0);
+            else dir = new Vector2(-1, 0);
         }
-        while (Time.time < dashStart + dashLength)
+        while (Time.time < dashStart + dashLength && controlsOK)
         {
-            _rb.velocity = dir.normalized * dashSpeed;
-            yield return null;
+             _rb.velocity = dir.normalized * dashSpeed;
+             yield return null;
         }
         animator.SetBool("IsDashing", false);
         isDashing = false;

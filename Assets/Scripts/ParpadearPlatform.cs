@@ -12,6 +12,17 @@ public class ParpadearPlatform : MonoBehaviour
     [SerializeField] private bool itsOn = true;
     [SerializeField] private float timer = 0f;
 
+    private void Start()
+    {
+        if (!itsOn)
+        {
+            for (int i = 0; i < sprites.Count; i++)
+            {
+                sprites[i].GetComponent<Renderer>().enabled = false;
+            }
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
     // Update is called once per frame
     void Update()
     {

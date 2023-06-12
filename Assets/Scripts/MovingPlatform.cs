@@ -44,7 +44,7 @@ public class MovingPlatform : MonoBehaviour
             currentPos++;
             if (currentPos >= posiciones.Count) currentPos = 0;
             target = posiciones[currentPos].position;
-            if (this.CompareTag("Slime"))
+            if (this.CompareTag("Enemie"))
             {
                 transform.Rotate(new Vector3(0, 180f));
             }

@@ -46,6 +46,14 @@ public class InventoryItem : MonoBehaviour
                 icono_Skill.gameObject.SetActive(true);
             }
         }
+        else if(tipoObjeto == "ViajeRapido")
+        {
+            if (inventory.teleportDict.ContainsKey(key))
+            {
+                nombreSkill.text = key;
+                inter.gameObject.SetActive(false);
+            }
+        }
         
     }
 
