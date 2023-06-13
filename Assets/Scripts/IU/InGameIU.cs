@@ -31,7 +31,7 @@ public class InGameIU : MonoBehaviour
     [SerializeField] Button exitButton;
 
     [SerializeField] Button aux1;
-    [SerializeField] Button aux2;
+    [SerializeField] Button auxiliarButtonTextFound;
 
     [SerializeField] Text notaSecretaNumero;
     [SerializeField] Text contenidoNota;
@@ -76,7 +76,7 @@ public class InGameIU : MonoBehaviour
         {
             PlayerPrefs.SetString("Level", SceneManager.GetActiveScene().name);
             PlayerPrefs.SetInt("CameraPoint", camController.GetCameraPoint());
-            PlayerPrefs.SetInt("CameraSize", camController.GetSize());
+            PlayerPrefs.SetFloat("CameraSize", camController.GetSize());
             Vector3 aux = deathController.GetSpawnPoint();
             if (aux.x == 0 && aux.y == 00)
             {
@@ -131,11 +131,10 @@ public class InGameIU : MonoBehaviour
         
         if(inventory.notasSecretasDict.TryGetValue(key, out string value))
         {
-
             FoundTextMenu.SetActive(true);
             contenidoNota.text = value;
             notaSecretaNumero.text = key.ToString();
-            aux2.Select();
+            auxiliarButtonTextFound.Select();
         }
         
     }
@@ -176,7 +175,7 @@ public class InGameIU : MonoBehaviour
             string[] cadena = value.Split('_');
             PlayerPrefs.SetString("Level", "Level " + cadena[0]);
             PlayerPrefs.SetInt("CameraPoint", Convert.ToInt32(cadena[1]));
-            PlayerPrefs.SetInt("CameraSize", Convert.ToInt32(cadena[2]));
+            PlayerPrefs.SetFloat("CameraSize", Convert.ToInt32(cadena[2]));
             PlayerPrefs.SetFloat("Player X", Convert.ToSingle(cadena[3]));
             PlayerPrefs.SetFloat("Player Y", Convert.ToSingle(cadena[4]));
             PlayerPrefs.Save();

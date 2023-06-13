@@ -10,7 +10,7 @@ public class BulletScript : MonoBehaviour
     private float speed;
     private Vector2 dir;
     private Vector2 target;
-
+    private float timer;
     void Start()
     {
         controller = FindObjectOfType<DeathControllerScript>();
@@ -18,12 +18,16 @@ public class BulletScript : MonoBehaviour
         speed = laser.GetBulletSpeed();
         dir = laser.GetDir();
         target = new Vector2(transform.position.x, transform.position.y);
+        this.transform.parent = null;
+        timer = 3;
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
+        timer-= Time.deltaTime;
+        if (timer <= 0) Destroy(this.gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

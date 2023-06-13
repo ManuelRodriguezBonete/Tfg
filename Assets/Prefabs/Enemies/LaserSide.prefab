@@ -269,7 +269,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5299722508853880324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.42, y: 12.5, z: -116.64152}
+  m_LocalPosition: {x: -64.42, y: 12.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5299722507470117165}
@@ -297,6 +297,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4423273446280270083, guid: 59d13475498286341a65a19bf673c9f8, type: 3}
   baseObj: {fileID: 5299722507470117162}
   cargarObj: {fileID: 5299722507606472929}
+  delayShot: 0
 --- !u!61 &5299722508853880326
 BoxCollider2D:
   m_ObjectHideFlags: 0

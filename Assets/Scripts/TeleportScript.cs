@@ -8,7 +8,7 @@ public class TeleportScript : MonoBehaviour
     private GameObject player;
     [SerializeField] GameObject target;
     [SerializeField] GameObject cameraPointTarget;
-    [SerializeField] int cameraSize;
+    [SerializeField] float cameraSize;
 
     private bool col = false;
     // Start is called before the first frame update

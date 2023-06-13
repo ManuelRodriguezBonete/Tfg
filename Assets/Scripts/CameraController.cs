@@ -18,8 +18,8 @@ public class CameraController : MonoBehaviour
     private Vector3 target;
     //private int currentPos = 0;
     [SerializeField] private int numTarget = 0;
-    [SerializeField] private int numSize = 7;
-    private int size;
+    [SerializeField] private float numSize = 7;
+    private float size;
 
     //Solo se usaría en el método 2
     //Vector3 velocity;
@@ -33,7 +33,7 @@ public class CameraController : MonoBehaviour
         {
             target = listaPuntosCamara[PlayerPrefs.GetInt("CameraPoint")].transform.position;
             transform.position = target;
-            size = PlayerPrefs.GetInt("CameraSize");
+            size = PlayerPrefs.GetFloat("CameraSize");
             if (size == 0) size = 7;
             camera.orthographicSize = size;
         }
@@ -75,12 +75,12 @@ public class CameraController : MonoBehaviour
     {
         target = vec;
     }
-    public void SetSize(int num)
+    public void SetSize(float num)
     {
         size = num;
         camera.orthographicSize = size;
     }
-    public int GetSize()
+    public float GetSize()
     {
         return size;
     }

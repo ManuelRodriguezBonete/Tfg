@@ -8,7 +8,7 @@ public class ChangeSceneObject : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private string sceneNameObjective;
     [SerializeField] private int cameraPoint;
-    [SerializeField] private int cameraSize;
+    [SerializeField] private float cameraSize;
     [SerializeField] private float playerX;
     [SerializeField] private float playerY;
     void Start()
@@ -27,7 +27,7 @@ public class ChangeSceneObject : MonoBehaviour
         {
             PlayerPrefs.SetString("Level", sceneNameObjective);
             PlayerPrefs.SetInt("CameraPoint", cameraPoint);
-            PlayerPrefs.SetInt("CameraSize", cameraSize);
+            PlayerPrefs.SetFloat("CameraSize", cameraSize);
             PlayerPrefs.SetFloat("Player X", playerX);
             PlayerPrefs.SetFloat("Player Y", playerY);
             PlayerPrefs.Save();

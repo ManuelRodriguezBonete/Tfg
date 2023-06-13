@@ -68,8 +68,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -192140961
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f797c3b7b02e48c4087407d3cf3e19d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -187,7 +187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5299722508853880324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.42, y: 12.5, z: -116.64152}
+  m_LocalPosition: {x: -64.42, y: 12.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5299722508660969481}
@@ -215,6 +215,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4423273446280270083, guid: 59d13475498286341a65a19bf673c9f8, type: 3}
   baseObj: {fileID: 3636176481867419372}
   cargarObj: {fileID: 8484181184806205503}
+  delayShot: 0
 --- !u!61 &5299722508853880326
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -309,8 +310,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -192140961
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a261d0fa7b86b1545bc996d982c19108, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

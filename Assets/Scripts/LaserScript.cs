@@ -12,7 +12,7 @@ public class LaserScript : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject baseObj;
     [SerializeField] private GameObject cargarObj;
-    private float timer;
+    [SerializeField] private float delayShot;
 
     private Vector2 faceShot = new Vector2();
     void Awake()
@@ -25,13 +25,13 @@ public class LaserScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-        if (timer < 1.5)
+        delayShot -= Time.deltaTime;
+        if (delayShot < 1.5)
         {
             baseObj.SetActive(false);
             cargarObj.SetActive(true);
         }
-        if (timer <= 0)
+        if (delayShot <= 0)
         {
             baseObj.SetActive(true);
             cargarObj.SetActive(false);
@@ -84,6 +84,6 @@ public class LaserScript : MonoBehaviour
     }
     private void ResetTimer()
     {
-        timer = shotSpeed;
+        delayShot = shotSpeed;
     }
 }

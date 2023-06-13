@@ -1,2 +1,4 @@
 WallJump
 Dash
+Climbing
+Dash

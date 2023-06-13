@@ -8,8 +8,8 @@ public class ChangeRoom : MonoBehaviour
     [SerializeField] private GameObject salaAnterior;
     [SerializeField] private GameObject salaPosterior;
     [SerializeField] private bool horizontal;
-    [SerializeField] private int sizeAnterior = 7;
-    [SerializeField] private int sizePosterior = 7;
+    [SerializeField] private float sizeAnterior = 7;
+    [SerializeField] private float sizePosterior = 7;
     [SerializeField] private bool animacion;
     
     private void OnTriggerExit2D(Collider2D collision)
