@@ -126,5 +126,17 @@ public class IOController : MonoBehaviour
             File.AppendAllText(path, colec.Key + "*" + colec.Value + "\n");
         }
     }
-
+    public void DeleteAll()
+    {
+        string path = "Assets/Resources/ViajeRapido.txt";
+        File.WriteAllText(path, "");
+        path = "Assets/Resources/Coleccionables.txt";
+        File.WriteAllText(path, "");
+        path = "Assets/Resources/NotasSecretas.txt";
+        File.WriteAllText(path, "");
+        path = "Assets/Resources/Skills.txt";
+        File.WriteAllText(path, "");
+        path = "Assets/Resources/Deaths.txt";
+        File.WriteAllText(path, "");
+    }
 }

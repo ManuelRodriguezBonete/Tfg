@@ -1,6 +1,7 @@
-Falling-94
-Total-169
-Static Spike-61
+Falling-97
+Total-208
+Static Spike-91
 Snake-7
 Bat-6
 Slime-1
+Fly-6

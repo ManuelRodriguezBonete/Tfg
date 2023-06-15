@@ -106,8 +106,16 @@ public class PlayerMovement : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name != "Creditos" && SceneManager.GetActiveScene().name != "Estadísticas")
         {
-            Vector3 aux = new Vector3(PlayerPrefs.GetFloat("Player X"), PlayerPrefs.GetFloat("Player Y"), 0);
-            transform.position = aux;
+            if (PlayerPrefs.HasKey("Player X"))
+            {
+                Vector3 aux = new Vector3(PlayerPrefs.GetFloat("Player X"), PlayerPrefs.GetFloat("Player Y"), 0);
+                transform.position = aux;
+            }
+            else
+            {
+                transform.position = new Vector3(-41, 2.5f, 0);
+            }
+            
         }
         
     }
