@@ -29,7 +29,7 @@ public class CameraController : MonoBehaviour
         //target = listaPuntosCamara[numTarget].transform.position;
         //camera.orthographicSize = numSize;
         //transform.position = listaPuntosCamara[numTarget].transform.position;
-        if (SceneManager.GetActiveScene().name != "Creditos")
+        if (SceneManager.GetActiveScene().name != "Creditos" && SceneManager.GetActiveScene().name != "Estadísticas")
         {
             target = listaPuntosCamara[PlayerPrefs.GetInt("CameraPoint")].transform.position;
             transform.position = target;

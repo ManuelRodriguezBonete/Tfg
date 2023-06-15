@@ -104,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
         {
             foreach (string skill in inventory.skillList) { UnlockSkill(skill, true); }
         }
-        if (SceneManager.GetActiveScene().name != "Creditos")
+        if (SceneManager.GetActiveScene().name != "Creditos" && SceneManager.GetActiveScene().name != "Estadísticas")
         {
             Vector3 aux = new Vector3(PlayerPrefs.GetFloat("Player X"), PlayerPrefs.GetFloat("Player Y"), 0);
             transform.position = aux;

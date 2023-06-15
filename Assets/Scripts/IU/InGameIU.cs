@@ -125,6 +125,7 @@ public class InGameIU : MonoBehaviour
         inGameController.StopGame();
         FoundTextMenu.SetActive(true);
         onPause = true;
+        auxiliarButtonTextFound.Select();
     }
     public void OnTextFound(int key)
     {
@@ -132,6 +133,7 @@ public class InGameIU : MonoBehaviour
         if(inventory.notasSecretasDict.TryGetValue(key, out string value))
         {
             FoundTextMenu.SetActive(true);
+            auxiliarButtonTextFound.Select();
             contenidoNota.text = value;
             notaSecretaNumero.text = key.ToString();
             auxiliarButtonTextFound.Select();
@@ -143,6 +145,7 @@ public class InGameIU : MonoBehaviour
         //inGameController.ReanudeGame();
         FoundTextMenu.SetActive(false);
         onPause = false;
+        OffPauseMenu();
         inventarioButton.Select();
     }
     public void OnMapMenu()

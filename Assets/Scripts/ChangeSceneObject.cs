@@ -23,7 +23,7 @@ public class ChangeSceneObject : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (SceneManager.GetActiveScene().name != "Creditos")
+        if (SceneManager.GetActiveScene().name != "Creditos" && SceneManager.GetActiveScene().name != "Estadísticas")
         {
             PlayerPrefs.SetString("Level", sceneNameObjective);
             PlayerPrefs.SetInt("CameraPoint", cameraPoint);
