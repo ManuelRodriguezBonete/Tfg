@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7935912519919523052}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.032, y: -0.105, z: 0}
-  m_LocalScale: {x: 0.5364192, y: 0.5364192, z: 0.5364192}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7479695, y: 0.5364192, z: 0.5364192}
   m_Children: []
   m_Father: {fileID: 8462816522119950873}
   m_RootOrder: 0
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_SortingLayerID: -192140961
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5356844052431287110, guid: ac818bcc27a105a46bd3fab93d308094, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 1013560775509814104, guid: ad83b4e4637102445a6a2b86253158a5, type: 3}
+  m_Color: {r: 1, g: 0.5896226, b: 0.5896226, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8462816522119950878}
   - component: {fileID: 8462816522119950872}
   m_Layer: 3
-  m_Name: ParpadearPlatform
+  m_Name: ParpadearPlatform 5
   m_TagString: Platform
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -128,7 +128,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.25}
+  m_Offset: {x: 0.0000009536743, y: 0.21497154}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -139,7 +139,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 0.5}
+  m_Size: {x: 1.8853626, y: 0.42994308}
   m_EdgeRadius: 0
 --- !u!114 &8462816522119950872
 MonoBehaviour:
@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7720686684c31fd45ad706952813a869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeOn: 3
-  timeOff: 3
+  timeOn: 2
+  timeOff: 2
   sprites:
   - {fileID: 7935912519919523052}
   itsOn: 1

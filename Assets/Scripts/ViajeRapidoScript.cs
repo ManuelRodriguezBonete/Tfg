@@ -5,17 +5,22 @@ using UnityEngine;
 public class ViajeRapidoScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private InGameIU iu;
+     private InGameIU iu;
     [SerializeField] private GameObject dark;
     [SerializeField] private GameObject color;
     [SerializeField] private GameObject tecla;
     [SerializeField] private string key;
     [SerializeField] private string value;
-    [SerializeField] private Inventory inv;
+    private Inventory inv;
+    private GameObject cont;
     private bool descubierto;
     private bool near;
     void Start()
     {
+        cont = GameObject.FindGameObjectWithTag("GameController");
+        iu = cont.GetComponent<InGameIU>();
+        inv = cont.GetComponent<Inventory>();
+
         tecla.SetActive(false);
         if (inv.teleportDict.ContainsKey(key))
         {

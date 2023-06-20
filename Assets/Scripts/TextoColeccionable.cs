@@ -6,13 +6,17 @@ using UnityEngine;
 public class TextoColeccionable : MonoBehaviour
 {
     [SerializeField] GameObject ayuda;
-    [SerializeField] InGameIU iucontroller;
+    private InGameIU iucontroller;
     [SerializeField] string dirMemoria;
     [SerializeField] int numerotexto;
-    [SerializeField] Inventory inventory;
+    private Inventory inventory;
+    private GameObject cont;
     private bool active = false;
     void Start()
     {
+        cont = GameObject.FindGameObjectWithTag("GameController");
+        inventory = cont.GetComponent<Inventory>();
+        iucontroller= cont.GetComponent<InGameIU>();
         dirMemoria = "Assets/Resources/TextosNotas/" + dirMemoria + ".txt";
         Debug.Log(dirMemoria);
     }

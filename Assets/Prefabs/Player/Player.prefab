@@ -144,7 +144,7 @@ MonoBehaviour:
   inventory: {fileID: 0}
   groundLM:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8
   unlockedDash: 0
   unlockedWallJump: 0
   unlockedWallGrab: 0

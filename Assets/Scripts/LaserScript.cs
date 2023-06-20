@@ -26,7 +26,7 @@ public class LaserScript : MonoBehaviour
     void Update()
     {
         delayShot -= Time.deltaTime;
-        if (delayShot < 1.5)
+        if (delayShot < shotSpeed/2)
         {
             baseObj.SetActive(false);
             cargarObj.SetActive(true);

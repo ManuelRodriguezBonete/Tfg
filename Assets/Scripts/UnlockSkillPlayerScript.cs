@@ -6,10 +6,16 @@ public class UnlockSkillPlayerScript : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] string skillName;
-    [SerializeField] GameObject player;
-    [SerializeField] Inventory inventory;
+    private GameObject player;
+    private Inventory inventory;
+    private GameObject cont;
 
-
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        cont = GameObject.FindGameObjectWithTag("GameController");
+        inventory = cont.GetComponent<Inventory>();
+    }
     private void OnRenderObject()
     {
         if (skillName == "Dash" && player.GetComponent<PlayerMovement>().UnlockedDash) Destroy(gameObject);

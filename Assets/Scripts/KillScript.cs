@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class KillScript : MonoBehaviour
 {
-    [SerializeField] DeathControllerScript controller;
+    private DeathControllerScript controller;
     [SerializeField] string key;
     // Start is called before the first frame update
+
+    private void Start()
+    {
+        controller = FindObjectOfType<DeathControllerScript>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

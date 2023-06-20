@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7544352552665631151}
   - component: {fileID: 3971435917102688855}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bloques_LadrilloTextura_PSD_2_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 8462816522119950873}
   - component: {fileID: 8462816522119950878}
   - component: {fileID: 8462816522119950872}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: ParpadearPlatform 1
   m_TagString: Platform
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}

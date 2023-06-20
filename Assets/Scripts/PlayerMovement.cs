@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jump")]
     [SerializeField] private float jumpForce = 12.0f;
+    private float initialJumpForce;
     [SerializeField] private float airDrag = 2.5f;
     [SerializeField] private float fallSpeed = 8f;
     [SerializeField] private float lowFallSpeed = 5f;
@@ -93,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
     public bool UnlockedDash { get => unlockedDash; set => unlockedDash = value; }
     public bool UnlockedWallJump { get => unlockedWallJump; set => unlockedWallJump = value; }
     public int NExtraJumps { get => nExtraJumps; set => nExtraJumps = value; }
+    public float JumpForce { get => jumpForce; set => jumpForce = value; }
 
 
     // Start is called before the first frame update
@@ -100,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        initialJumpForce = jumpForce;
         if (inventory != null)
         {
             foreach (string skill in inventory.skillList) { UnlockSkill(skill, true); }
@@ -299,7 +302,42 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb.drag = airDrag;
     }
-    private void Jump(Vector2 direc)
+    public void Jump(Vector2 direc, float powerJ)
+    {
+        animator.SetBool("IsJumping", true);
+        if (direc == Vector2.up)
+        {
+            if (!isGrounded && !onWall)
+            {
+                extraJumpsValue--;
+                _rb.velocity = new Vector2(_rb.velocity.x, 0);
+                _rb.AddForce(direc * powerJ * 0.8f, ForceMode2D.Impulse);
+            }
+            else
+            {
+                _rb.velocity = new Vector2(_rb.velocity.x, 0);
+                _rb.AddForce(direc * powerJ, ForceMode2D.Impulse);
+            }
+        }
+        else
+        {
+            if (!isGrounded && !onWall)
+            {
+                extraJumpsValue--;
+                _rb.velocity = new Vector2(_rb.velocity.x, 0);
+                _rb.AddForce(direc * powerJ * 0.8f, ForceMode2D.Impulse);
+            }
+            else
+            {
+                _rb.velocity = new Vector2(_rb.velocity.x, 0);
+                _rb.AddForce(direc * powerJ * 1.5f, ForceMode2D.Impulse);
+            }
+        }
+        hangTimeCounter = 0f;
+        jumpBufferCounter = 0f;
+        isJumping = true;
+    }
+    public void Jump(Vector2 direc)
     {
         animator.SetBool("IsJumping", true);
         if (direc == Vector2.up)

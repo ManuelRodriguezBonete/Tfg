@@ -14,10 +14,13 @@ public class InventoryItem : MonoBehaviour
     [SerializeField] string key;
     [SerializeField] string tipoObjeto;
 
-    [SerializeField] Inventory inventory;
+    private Inventory inventory;
+    private GameObject cont;
     private bool unlocked = false;
     void Start()
     {
+        cont = GameObject.FindGameObjectWithTag("GameController");
+        inventory = cont.GetComponent<Inventory>();
         UpdateInventory();
     }
 
