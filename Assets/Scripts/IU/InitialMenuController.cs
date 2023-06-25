@@ -11,12 +11,16 @@ public class InitialMenuController : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject settingsMenu;
+    [SerializeField] GameObject borrarMenu;
+    [SerializeField] GameObject borradoExitoso;
     [SerializeField] IOController controller;
     [SerializeField] public Dictionary<string, int> deathDict;
     [SerializeField] private TextMeshProUGUI muertesTotales;
 
     [SerializeField] Button stat1;
     [SerializeField] Button main1;
+    [SerializeField] Button borrar1;
+    [SerializeField] Button continuar;
 
 
     private void Awake()
@@ -34,14 +38,16 @@ public class InitialMenuController : MonoBehaviour
     //        muertesTotales.text += totalDeaths.ToString();
     //    }
     //}
-    private void DeleteALLDATA()
+    public void DeleteALLDATA()
     {
         PlayerPrefs.DeleteAll();
-        //controller.DeleteAll();
+        controller.DeleteAll();
+        continuar.Select();
+        borrarMenu.SetActive(false);
+        borradoExitoso.SetActive(true);
     }
     public void GoGameScene()
     {
-        PlayerPrefs.DeleteAll();
         if (PlayerPrefs.HasKey("Level"))
         {
             SceneManager.LoadScene(PlayerPrefs.GetString("Level"));
@@ -65,6 +71,21 @@ public class InitialMenuController : MonoBehaviour
         main1.Select();
         mainMenu.SetActive(true);
         settingsMenu.SetActive(false);
+        borrarMenu.SetActive(false);
+        borradoExitoso.SetActive(false);
+    }
+    public void Continuar()
+    {
+        main1.Select();
+        borradoExitoso.SetActive(false);
+        mainMenu.SetActive(true);
+    }
+    public void OnBorrarDatos()
+    {
+        borrar1.Select();
+        mainMenu.SetActive(false); 
+        settingsMenu.SetActive(false);
+        borrarMenu.SetActive(true);
     }
     public void OnStatsMenu()
     {

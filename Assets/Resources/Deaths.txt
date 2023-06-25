@@ -1,7 +1,0 @@
-Falling-113
-Total-248
-Static Spike-110
-Snake-9
-Bat-8
-Slime-2
-Fly-6

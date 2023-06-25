@@ -26,37 +26,41 @@ public class InventoryItem : MonoBehaviour
 
     public void UpdateInventory()
     {
-        if (!unlocked && tipoObjeto =="Skill")
+        if (inventory!=null)
         {
-            for (int i = 0; i < inventory.skillList.Count; i++)
+            if (!unlocked && tipoObjeto == "Skill")
             {
-                if (key == inventory.skillList[i])
+                for (int i = 0; i < inventory.skillList.Count; i++)
+                {
+                    if (key == inventory.skillList[i])
+                    {
+                        nombreSkill.text = key;
+                        inter.gameObject.SetActive(false);
+                        icono_Skill.gameObject.SetActive(true);
+                        unlocked = true;
+                    }
+                }
+            }
+            else if (tipoObjeto == "NotaSecreta")
+            {
+                int keyInt = Int32.Parse(key);
+                if (inventory.notasSecretasDict.TryGetValue(keyInt, out var texto))
+                {
+                    nombreSkill.text = "Nota nº: " + keyInt;
+                    inter.gameObject.SetActive(false);
+                    icono_Skill.gameObject.SetActive(true);
+                }
+            }
+            else if (tipoObjeto == "ViajeRapido")
+            {
+                if (inventory.teleportDict.ContainsKey(key))
                 {
                     nombreSkill.text = key;
                     inter.gameObject.SetActive(false);
-                    icono_Skill.gameObject.SetActive(true);
-                    unlocked = true;
                 }
             }
         }
-        else if (tipoObjeto == "NotaSecreta")
-        {
-            int keyInt = Int32.Parse(key);
-            if (inventory.notasSecretasDict.TryGetValue(keyInt, out var texto))
-            {
-                nombreSkill.text = "Nota nº: " + keyInt;
-                inter.gameObject.SetActive(false);
-                icono_Skill.gameObject.SetActive(true);
-            }
-        }
-        else if(tipoObjeto == "ViajeRapido")
-        {
-            if (inventory.teleportDict.ContainsKey(key))
-            {
-                nombreSkill.text = key;
-                inter.gameObject.SetActive(false);
-            }
-        }
+        
         
     }
 

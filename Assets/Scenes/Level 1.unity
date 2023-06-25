@@ -6102,7 +6102,7 @@ MonoBehaviour:
   nombreSkill: {fileID: 60836750}
   inter: {fileID: 60836748}
   icono_Skill: {fileID: 60836749}
-  key: 5
+  key: 7
   tipoObjeto: NotaSecreta
 --- !u!114 &60836754
 MonoBehaviour:
@@ -6155,7 +6155,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -18958,7 +18958,7 @@ MonoBehaviour:
   nombreSkill: {fileID: 186632892}
   inter: {fileID: 186632890}
   icono_Skill: {fileID: 186632891}
-  key: 5
+  key: 9
   tipoObjeto: NotaSecreta
 --- !u!114 &186632896
 MonoBehaviour:
@@ -19011,7 +19011,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 9
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -19251,7 +19251,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -28231,7 +28231,7 @@ MonoBehaviour:
   nombreSkill: {fileID: 587221348}
   inter: {fileID: 587221346}
   icono_Skill: {fileID: 587221347}
-  key: 5
+  key: 4
   tipoObjeto: NotaSecreta
 --- !u!114 &587221352
 MonoBehaviour:
@@ -28284,7 +28284,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -28696,7 +28696,7 @@ MonoBehaviour:
   nombreSkill: {fileID: 596837702}
   inter: {fileID: 596837700}
   icono_Skill: {fileID: 596837701}
-  key: 0
+  key: 1
   tipoObjeto: NotaSecreta
 --- !u!114 &596837705 stripped
 MonoBehaviour:
@@ -28760,7 +28760,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -44293,16 +44293,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 44, y: 0, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 4
-      m_TileSpriteIndex: 4
-      m_TileMatrixIndex: 2
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 60, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -44403,16 +44393,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 121, y: 1, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
-      m_TileMatrixIndex: 28
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 130, y: 1, z: 0}
     second:
       serializedVersion: 2
@@ -44449,16 +44429,6 @@ Tilemap:
       m_TileIndex: 4
       m_TileSpriteIndex: 4
       m_TileMatrixIndex: 37
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 77, y: 2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
-      m_TileMatrixIndex: 12
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
@@ -44688,26 +44658,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 0
       m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 2
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 126, y: 5, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
-      m_TileMatrixIndex: 25
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 72, y: 6, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 5
-      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 2
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -46141,11 +46091,11 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 3b1547a4be417c74b9616d269e72ece0, type: 2}
   - m_RefCount: 13
     m_Data: {fileID: 11400000, guid: 32950043ffd1aa748a57f1ad9bd03ffc, type: 2}
-  - m_RefCount: 110
+  - m_RefCount: 107
     m_Data: {fileID: 11400000, guid: ae30b61abda95ae4580e825c7be962e4, type: 2}
-  - m_RefCount: 102
+  - m_RefCount: 101
     m_Data: {fileID: 11400000, guid: 994b126d7be82a445aa40111732510d1, type: 2}
-  - m_RefCount: 16
+  - m_RefCount: 15
     m_Data: {fileID: 11400000, guid: 932a8c7b21e54f24a9d822c0565faec4, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -46156,13 +46106,13 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 20000c1d2321653458484ec8e69a44a0, type: 3}
   - m_RefCount: 13
     m_Data: {fileID: 21300000, guid: 6350f4a2cc245224f84edc7fc429ac9e, type: 3}
-  - m_RefCount: 110
+  - m_RefCount: 107
     m_Data: {fileID: 21300000, guid: 487ea4c9d038c224fa7b788199d898db, type: 3}
-  - m_RefCount: 102
+  - m_RefCount: 101
     m_Data: {fileID: 21300000, guid: b01b455342bedbc4ba4f6e78924c1b13, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 16
+  - m_RefCount: 15
     m_Data: {fileID: 21300000, guid: ca875bdf081deea419ac22cffc4bc2c0, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 1
@@ -46201,7 +46151,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 96
+  - m_RefCount: 94
     m_Data:
       e00: 1
       e01: 0
@@ -46381,7 +46331,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 24
+  - m_RefCount: 23
     m_Data:
       e00: 0.000000059604645
       e01: -0.99999994
@@ -46615,24 +46565,24 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 1
+  - m_RefCount: 0
     m_Data:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0.46299744
-      e10: 0
-      e11: 0.56
-      e12: 0
-      e13: 0.5546851
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
+      e00: -8.303864e-15
+      e01: -4.7175588e-14
+      e02: -5.8041548e+19
+      e03: 0.0000000027687097
+      e10: 4.5905e-41
+      e11: 4.5905e-41
+      e12: 4.48e-43
+      e13: 4.47e-43
+      e20: -1.3294262e-16
+      e21: -1.3166011e+29
+      e22: -1.3165142e+29
+      e23: -1.3165142e+29
+      e30: 4.5905e-41
+      e31: 1e-45
+      e32: 1e-45
+      e33: 1e-45
   - m_RefCount: 1
     m_Data:
       e00: -1
@@ -46669,24 +46619,24 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 1
+  - m_RefCount: 0
     m_Data:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0.5015869
-      e10: 0
-      e11: 0.56
-      e12: 0
-      e13: 0.8743185
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
+      e00: -8.303864e-15
+      e01: -4.7175588e-14
+      e02: -5.8041548e+19
+      e03: 0.0000000020960886
+      e10: 4.5905e-41
+      e11: 4.5905e-41
+      e12: 4.48e-43
+      e13: 4.47e-43
+      e20: -1.3294262e-16
+      e21: -1.3166011e+29
+      e22: -1.3165142e+29
+      e23: -1.3165142e+29
+      e30: 4.5905e-41
+      e31: 1e-45
+      e32: 1e-45
+      e33: 1e-45
   - m_RefCount: 3
     m_Data:
       e00: 1
@@ -47156,7 +47106,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 306
+  - m_RefCount: 301
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -47773,7 +47723,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -47793,7 +47743,7 @@ MonoBehaviour:
   nombreSkill: {fileID: 405829728}
   inter: {fileID: 365333370}
   icono_Skill: {fileID: 450258095}
-  key: 5
+  key: 6
   tipoObjeto: NotaSecreta
 --- !u!114 &1501915763 stripped
 MonoBehaviour:
@@ -51781,7 +51731,7 @@ MonoBehaviour:
   nombreSkill: {fileID: 1886155567}
   inter: {fileID: 1886155565}
   icono_Skill: {fileID: 1886155566}
-  key: 5
+  key: 8
   tipoObjeto: NotaSecreta
 --- !u!114 &1886155571
 MonoBehaviour:
@@ -51834,7 +51784,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -52362,7 +52312,7 @@ MonoBehaviour:
   nombreSkill: {fileID: 1912033768}
   inter: {fileID: 1912033766}
   icono_Skill: {fileID: 1912033767}
-  key: 5
+  key: 10
   tipoObjeto: NotaSecreta
 --- !u!114 &1912033772
 MonoBehaviour:
@@ -52415,7 +52365,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -52663,7 +52613,7 @@ MonoBehaviour:
   nombreSkill: {fileID: 1920336510}
   inter: {fileID: 1920336508}
   icono_Skill: {fileID: 1920336509}
-  key: 5
+  key: 2
   tipoObjeto: NotaSecreta
 --- !u!114 &1920336514
 MonoBehaviour:
@@ -52716,7 +52666,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -55453,7 +55403,7 @@ MonoBehaviour:
   nombreSkill: {fileID: 2110172908}
   inter: {fileID: 2110172906}
   icono_Skill: {fileID: 2110172907}
-  key: 5
+  key: 3
   tipoObjeto: NotaSecreta
 --- !u!114 &2110172912
 MonoBehaviour:
@@ -55506,7 +55456,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
