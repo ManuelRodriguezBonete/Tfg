@@ -65,7 +65,7 @@ public class InGameIU : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene("InitialMenu");
     }
-    private void SaveData()
+    public void SaveData()
     {
         //Guardamos las muertes
         deathController.WriteDeaths();

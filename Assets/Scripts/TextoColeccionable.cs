@@ -17,7 +17,8 @@ public class TextoColeccionable : MonoBehaviour
         cont = GameObject.FindGameObjectWithTag("GameController");
         inventory = cont.GetComponent<Inventory>();
         iucontroller= cont.GetComponent<InGameIU>();
-        dirMemoria = "Assets/Resources/TextosNotas/" + dirMemoria + ".txt";
+        
+        dirMemoria = "Tfg_Data/Resources/Text/TextosNotas/" + dirMemoria + ".txt";
         Debug.Log(dirMemoria);
     }
 

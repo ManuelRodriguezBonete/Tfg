@@ -11,9 +11,10 @@ public class ChangeSceneObject : MonoBehaviour
     [SerializeField] private float cameraSize;
     [SerializeField] private float playerX;
     [SerializeField] private float playerY;
+    private InGameIU iu;
     void Start()
     {
-        
+        iu = FindObjectOfType<InGameIU>();
     }
 
     // Update is called once per frame
@@ -25,6 +26,7 @@ public class ChangeSceneObject : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name != "Creditos" && SceneManager.GetActiveScene().name != "Estadísticas")
         {
+            iu.SaveData();
             PlayerPrefs.SetString("Level", sceneNameObjective);
             PlayerPrefs.SetInt("CameraPoint", cameraPoint);
             PlayerPrefs.SetFloat("CameraSize", cameraSize);

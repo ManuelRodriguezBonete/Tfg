@@ -3800,6 +3800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd9db93a46538b04ab027681c3da7d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exe: 1
 --- !u!1 &1812056659
 GameObject:
   m_ObjectHideFlags: 0

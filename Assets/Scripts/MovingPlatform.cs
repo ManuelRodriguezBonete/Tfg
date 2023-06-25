@@ -12,9 +12,17 @@ public class MovingPlatform : MonoBehaviour
 
     void Start()
     {
-        numPosiciones = posiciones.Count;
-        if(numPosiciones>0)
-            target = posiciones[currentPos].position;
+        try
+        {
+            numPosiciones = posiciones.Count;
+            if (numPosiciones > 0)
+                target = posiciones[currentPos].position;
+        }
+        catch (System.NullReferenceException)
+        {
+            Destroy(this);
+        }
+        
     }
 
     void Update()

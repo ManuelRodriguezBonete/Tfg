@@ -10,10 +10,19 @@ using UnityEngine;
 
 public class IOController : MonoBehaviour
 {
-    
+    [SerializeField] private bool exe = false;
     public Dictionary<string, int> ReadDeaths()
     {
-        string path = "Assets/Resources/Deaths.txt";
+        string path;
+        if (exe)
+        {
+            path = "Tfg_Data/Resources/Text/Deaths.txt";
+        }
+        else
+        {
+            path = "Assets/Resources/Deaths.txt";
+        }
+        
         Dictionary<string, int> deathDict= new Dictionary<string, int>();
 
         string[] content = File.ReadAllLines(path);
@@ -27,7 +36,15 @@ public class IOController : MonoBehaviour
     }
     public void WriteDeaths(Dictionary<string, int> deathList) 
     {
-        string path = "Assets/Resources/Deaths.txt";
+        string path;
+        if (exe)
+        {
+            path = "Tfg_Data/Resources/Text/Deaths.txt";
+        }
+        else
+        {
+            path = "Assets/Resources/Deaths.txt";
+        }
         File.WriteAllText(path, "");
         foreach (var death in deathList)
         {
@@ -36,7 +53,15 @@ public class IOController : MonoBehaviour
     }
     public List<string> ReadSkills()
     {
-        string path = "Assets/Resources/Skills.txt";
+        string path;
+        if (exe)
+        {
+            path = "Tfg_Data/Resources/Text/Skills.txt";
+        }
+        else
+        {
+            path = "Assets/Resources/Skills.txt";
+        }
         List<string> list = new List<string>();
         string[] content = File.ReadAllLines(path);
         for (int i = 0; i < content.Length; i++)
@@ -49,7 +74,15 @@ public class IOController : MonoBehaviour
     }
     public void WriteSkills(List<string> list)
     {
-        string path = "Assets/Resources/Skills.txt";
+        string path;
+        if (exe)
+        {
+            path = "Tfg_Data/Resources/Text/Skills.txt";
+        }
+        else
+        {
+            path = "Assets/Resources/Skills.txt";
+        }
         File.WriteAllText(path, "");
         foreach (var skill in list)
         {
@@ -58,7 +91,15 @@ public class IOController : MonoBehaviour
     }
     public Dictionary<int, string> ReadNotasSecretas()
     {
-        string path = "Assets/Resources/NotasSecretas.txt";
+        string path;
+        if (exe)
+        {
+            path = "Tfg_Data/Resources/Text/NotasSecretas.txt";
+        }
+        else
+        {
+            path = "Assets/Resources/NotasSecretas.txt";
+        }
         Dictionary<int, string> notas = new Dictionary<int, string>();
 
         string[] content = File.ReadAllLines(path);
@@ -72,7 +113,15 @@ public class IOController : MonoBehaviour
     }
     public Dictionary<string, bool> ReadColeccionables()
     {
-        string path = "Assets/Resources/Coleccionables.txt";
+        string path;
+        if (exe)
+        {
+            path = "Tfg_Data/Resources/Text/Coleccionables.txt";
+        }
+        else
+        {
+            path = "Assets/Resources/Coleccionables.txt";
+        }
         Dictionary<string, bool> colec = new Dictionary<string, bool>();
 
         string[] content = File.ReadAllLines(path);
@@ -86,7 +135,15 @@ public class IOController : MonoBehaviour
 
     public Dictionary<string, string> ReadTeleports()
     {
-        string path = "Assets/Resources/ViajeRapido.txt";
+        string path;
+        if (exe)
+        {
+            path = "Tfg_Data/Resources/Text/ViajeRapido.txt";
+        }
+        else
+        {
+            path = "Assets/Resources/ViajeRapido.txt";
+        }
         Dictionary<string, string> teleports = new Dictionary<string, string>();
 
         string[] content = File.ReadAllLines(path);
@@ -100,7 +157,15 @@ public class IOController : MonoBehaviour
     }
     public void WriteNotas(Dictionary<int, string> notasList)
     {
-        string path = "Assets/Resources/NotasSecretas.txt";
+        string path;
+        if (exe)
+        {
+            path = "Tfg_Data/Resources/Text/NotasSecretas.txt";
+        }
+        else
+        {
+            path = "Assets/Resources/NotasSecretas.txt";
+        }
         File.WriteAllText(path, "");
         foreach (var nota in notasList)
         {
@@ -109,7 +174,15 @@ public class IOController : MonoBehaviour
     }
     public void WriteCollectables(Dictionary<string , bool> colecDic)
     {
-        string path = "Assets/Resources/Coleccionables.txt";
+        string path;
+        if (exe)
+        {
+            path = "Tfg_Data/Resources/Text/Coleccionables.txt";
+        }
+        else
+        {
+            path = "Assets/Resources/Coleccionables.txt";
+        }
         File.WriteAllText(path, "");
         foreach (var colec in colecDic)
         {
@@ -119,7 +192,15 @@ public class IOController : MonoBehaviour
     }
     public void WriteTeleports(Dictionary<string, string> teleportsDict)
     {
-        string path = "Assets/Resources/ViajeRapido.txt";
+        string path;
+        if (exe)
+        {
+            path = "Tfg_Data/Resources/Text/ViajeRapido.txt";
+        }
+        else
+        {
+            path = "Assets/Resources/ViajeRapido.txt";
+        }
         File.WriteAllText(path, "");
         foreach (var colec in teleportsDict)
         {
@@ -128,15 +209,55 @@ public class IOController : MonoBehaviour
     }
     public void DeleteAll()
     {
-        string path = "Assets/Resources/ViajeRapido.txt";
+        string path;
+        if (exe)
+        {
+            path = "Tfg_Data/Resources/Text/ViajeRapido.txt";
+        }
+        else
+        {
+            path = "Assets/Resources/ViajeRapido.txt";
+        }
         File.WriteAllText(path, "");
-        path = "Assets/Resources/Coleccionables.txt";
+
+        if (exe)
+        {
+            path = "Tfg_Data/Resources/Text/Coleccionables.txt";
+        }
+        else
+        {
+            path = "Assets/Resources/Coleccionables.txt";
+        }
         File.WriteAllText(path, "");
-        path = "Assets/Resources/NotasSecretas.txt";
+
+        if (exe)
+        {
+            path = "Tfg_Data/Resources/Text/NotasSecretas.txt";
+        }
+        else
+        {
+            path = "Assets/Resources/NotasSecretas.txt";
+        }
         File.WriteAllText(path, "");
-        path = "Assets/Resources/Skills.txt";
+
+        if (exe)
+        {
+            path = "Tfg_Data/Resources/Text/Skills.txt";
+        }
+        else
+        {
+            path = "Assets/Resources/Skills.txt";
+        }
         File.WriteAllText(path, "");
-        path = "Assets/Resources/Deaths.txt";
+
+        if (exe)
+        {
+            path = "Tfg_Data/Resources/Text/Deaths.txt";
+        }
+        else
+        {
+            path = "Assets/Resources/Deaths.txt";
+        }
         File.WriteAllText(path, "");
     }
 }
