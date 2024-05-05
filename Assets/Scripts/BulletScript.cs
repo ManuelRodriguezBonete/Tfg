@@ -19,7 +19,8 @@ public class BulletScript : MonoBehaviour
         dir = laser.GetDir();
         target = new Vector2(transform.position.x, transform.position.y);
         this.transform.parent = null;
-        timer = 3;
+        timer = laser.bulletTimeAlive == 0 ? 3 : laser.bulletTimeAlive;
+        Debug.Log(timer);
     }
 
     // Update is called once per frame

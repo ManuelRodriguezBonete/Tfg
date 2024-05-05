@@ -66,22 +66,23 @@ public class CameraController : MonoBehaviour
     public void MoveCamera()
     {
         //target = listaPuntosCamara[numTarget].transform.position;
-        if (animacion)
-        {
-            if (Vector2.Distance(transform.position, target) > 0.1f)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-            }
-        }
-        else
-        {
-            transform.position = target;
-        }
+        //if (animacion)
+        //{
+        //    if (Vector2.Distance(transform.position, target) > 0.1f)
+        //    {
+        //        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        //    }
+        //}
+        //else
+        //{
+        //    transform.position = target;
+        //}
         //if (Vector2.Distance(transform.position, target) < 0.1f)
         //{
         //    camera.orthographicSize = size;
         //}
 
+        transform.position = target;
 
     }
     public void SetTarget(Vector3 vec)

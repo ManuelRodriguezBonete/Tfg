@@ -13,6 +13,7 @@ public class LaserScript : MonoBehaviour
     [SerializeField] private GameObject baseObj;
     [SerializeField] private GameObject cargarObj;
     [SerializeField] private float delayShot;
+    [SerializeField] public float bulletTimeAlive = 0;
 
     private Vector2 faceShot = new Vector2();
     void Awake()

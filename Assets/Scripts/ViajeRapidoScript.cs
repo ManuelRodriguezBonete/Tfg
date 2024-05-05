@@ -39,6 +39,13 @@ public class ViajeRapidoScript : MonoBehaviour
     {
         if (near && Input.GetButtonDown("Interactuar"))
         {
+            iu.OnViajeRapido();
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
             if (!descubierto)
             {
                 inv.teleportDict.Add(key, value);
@@ -47,13 +54,6 @@ public class ViajeRapidoScript : MonoBehaviour
                 dark.SetActive(false);
                 descubierto = true;
             }
-            iu.OnViajeRapido();
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
             near = true;
             tecla.SetActive(true);
         }

@@ -11,8 +11,13 @@ using UnityEngine;
 public class IOController : MonoBehaviour
 {
     [SerializeField] private bool exe = false;
+    private void Start()
+    {
+        //exe = false;
+    }
     public Dictionary<string, int> ReadDeaths()
     {
+        //exe = false;
         string path;
         if (exe)
         {
