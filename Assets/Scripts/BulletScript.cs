@@ -20,7 +20,6 @@ public class BulletScript : MonoBehaviour
         target = new Vector2(transform.position.x, transform.position.y);
         this.transform.parent = null;
         timer = laser.bulletTimeAlive == 0 ? 3 : laser.bulletTimeAlive;
-        Debug.Log(timer);
     }
 
     // Update is called once per frame

@@ -10,6 +10,7 @@ public class DeathControllerScript : MonoBehaviour
     // Start is called before the first frame update
     [Header("Controllers")]
     [SerializeField] private IOController ioController;
+    [SerializeField] private AudioController audioController;
 
     [Header("Player")]
     [SerializeField] private GameObject player;
@@ -45,6 +46,7 @@ public class DeathControllerScript : MonoBehaviour
     }
     public void KillPlayer(string key)
     {
+        audioController.DeathSound();
         death = true;
         player.transform.position = spawnPoint;
         player.GetComponent<PlayerMovement>().controlsOK = false;
