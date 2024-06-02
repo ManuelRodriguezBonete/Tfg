@@ -46,6 +46,7 @@ public class InGameIU : MonoBehaviour
         camController = camera.GetComponent<CameraController>();
     }
 
+    
     // Update is called once per frame
     void Update()
     {

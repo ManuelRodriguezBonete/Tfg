@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
     public int NExtraJumps { get => nExtraJumps; set => nExtraJumps = value; }
     public float JumpForce { get => jumpForce; set => jumpForce = value; }
 
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -456,7 +456,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (skill == "Dash") unlockedDash = true;
         if (skill == "WallJump") unlockedWallJump = true;
-        if (skill == "WallGrab") unlockedWallGrab = true;
+        if (skill == "WallJump") unlockedWallGrab = true;
         if (skill == "Climbing") UnlockedClimbing = true;
         if (skill == "BreakItems") UnlockedBreakItems = true;
         if (skill == "ExtraJump") nExtraJumps = 1;

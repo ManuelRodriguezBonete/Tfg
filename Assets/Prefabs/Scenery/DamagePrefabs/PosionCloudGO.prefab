@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 2863231913484822670}
   - component: {fileID: 2863231913484822671}
   - component: {fileID: 2863231913484822656}
+  - component: {fileID: 5969315484259408466}
   m_Layer: 0
   m_Name: PoisonCloud
   m_TagString: Untagged
@@ -367,6 +368,18 @@ MonoBehaviour:
   - {fileID: 2863231913669308676}
   - {fileID: 2863231913676139286}
   speed: 1
+--- !u!114 &5969315484259408466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2863231913484822657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159e716be44c65a44bbf6c61154335d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2863231913669308677
 GameObject:
   m_ObjectHideFlags: 0

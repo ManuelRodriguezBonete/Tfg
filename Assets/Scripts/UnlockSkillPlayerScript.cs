@@ -20,7 +20,7 @@ public class UnlockSkillPlayerScript : MonoBehaviour
     {
         if (skillName == "Dash" && player.GetComponent<PlayerMovement>().UnlockedDash) Destroy(gameObject);
         else if (skillName == "WallJump" && player.GetComponent<PlayerMovement>().UnlockedWallJump) Destroy(gameObject);
-        else if (skillName == "WallGrab" && player.GetComponent<PlayerMovement>().UnlockedWallGrab) Destroy(gameObject);
+        else if (skillName == "WallJump" && player.GetComponent<PlayerMovement>().UnlockedWallGrab) Destroy(gameObject);
         else if (skillName == "Climbing" && player.GetComponent<PlayerMovement>().UnlockedClimbing) Destroy(gameObject);
         else if (skillName == "BreakItems" && player.GetComponent<PlayerMovement>().UnlockedBreakItems) Destroy(gameObject);
         else if (skillName == "ExtraJump" && player.GetComponent<PlayerMovement>().NExtraJumps == 1) Destroy(gameObject);

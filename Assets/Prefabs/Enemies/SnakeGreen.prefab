@@ -77,9 +77,10 @@ GameObject:
   - component: {fileID: 4301524134636164790}
   - component: {fileID: 4301524134636164785}
   - component: {fileID: 4301524134636164784}
+  - component: {fileID: 3062713764974622604}
   m_Layer: 0
   m_Name: snakeGreen
-  m_TagString: Untagged
+  m_TagString: Enemie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -223,6 +224,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   p1: {fileID: 4301524134672607800}
   p2: {fileID: 4301524134147702997}
+--- !u!114 &3062713764974622604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301524134636164778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159e716be44c65a44bbf6c61154335d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4301524134672607800
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 750552420561374746}
   m_Layer: 0
   m_Name: Angry Fly
-  m_TagString: Slime
+  m_TagString: Enemie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,7 +208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e4f5d84cfcd3249936cbe34a11b072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
   key: Angry Fly
 --- !u!114 &7861480871272882885
 MonoBehaviour:

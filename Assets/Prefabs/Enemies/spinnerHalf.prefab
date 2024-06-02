@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 9144968758675419643}
   - component: {fileID: 8332461509560242675}
   - component: {fileID: 2619842505440754732}
+  - component: {fileID: 2246065932334363609}
   m_Layer: 0
   m_Name: eneme
   m_TagString: Enemie
@@ -182,7 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e4f5d84cfcd3249936cbe34a11b072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
   key: Half Spinner
 --- !u!114 &8332461509560242675
 MonoBehaviour:
@@ -216,6 +216,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.16}
   serializedVersion: 2
   m_Radius: 0.315
+--- !u!114 &2246065932334363609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5189259932724714724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159e716be44c65a44bbf6c61154335d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6261088297484578177
 GameObject:
   m_ObjectHideFlags: 0
