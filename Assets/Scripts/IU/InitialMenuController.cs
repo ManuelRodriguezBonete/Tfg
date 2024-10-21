@@ -22,6 +22,11 @@ public class InitialMenuController : MonoBehaviour
     [SerializeField] Button borrar1;
     [SerializeField] Button continuar;
 
+    [SerializeField] Slider sliderSFX;
+    [SerializeField] Slider sliderMusic;
+
+    [SerializeField] AudioSource sfxSource;
+    [SerializeField] AudioSource musicSource;
 
     private void Awake()
     {
@@ -38,6 +43,14 @@ public class InitialMenuController : MonoBehaviour
     //        muertesTotales.text += totalDeaths.ToString();
     //    }
     //}
+    private void Start()
+    {
+        if (PlayerPrefs.HasKey("SFX_Vol")) sliderSFX.value = PlayerPrefs.GetFloat("SFX_Vol"); 
+        else { sliderSFX.value = 0.5f; PlayerPrefs.SetFloat("SFX_Vol", sliderSFX.value);}
+        if (PlayerPrefs.HasKey("Music_Vol")) sliderMusic.value = PlayerPrefs.GetFloat("Music_Vol");
+        else { sliderMusic.value = 0.5f; PlayerPrefs.SetFloat("Music_Vol", sliderMusic.value); }
+        SetVolumen();
+    }
     public void DeleteALLDATA()
     {
         PlayerPrefs.DeleteAll();
@@ -95,5 +108,12 @@ public class InitialMenuController : MonoBehaviour
     {
         mainMenu.SetActive(false);
         settingsMenu.SetActive(true);
+    }
+    public void SetVolumen()
+    {
+        sfxSource.volume = sliderSFX.value;
+        musicSource.volume = sliderMusic.value;
+        if (PlayerPrefs.HasKey("Music_Vol")) PlayerPrefs.SetFloat("Music_Vol", sliderMusic.value);
+        if (PlayerPrefs.HasKey("SFX_Vol")) PlayerPrefs.SetFloat("SFX_Vol", sliderSFX.value);
     }
 }

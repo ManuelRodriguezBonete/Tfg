@@ -36,6 +36,12 @@ public class InGameIU : MonoBehaviour
     [SerializeField] Text notaSecretaNumero;
     [SerializeField] Text contenidoNota;
 
+    [SerializeField] AudioSource sfxSource;
+    [SerializeField] AudioSource musicSource;
+
+    [SerializeField] Slider sliderSFX;
+    [SerializeField] Slider sliderMusic;
+
     private bool onPause = false;
     private Color fadeColor;
 
@@ -44,6 +50,10 @@ public class InGameIU : MonoBehaviour
         onPause = false;
         camera = Camera.main;
         camController = camera.GetComponent<CameraController>();
+        if (PlayerPrefs.HasKey("SFX_Vol")) sliderSFX.value = PlayerPrefs.GetFloat("SFX_Vol");
+        if (PlayerPrefs.HasKey("Music_Vol")) sliderMusic.value =PlayerPrefs.GetFloat("Music_Vol");
+        
+        SetVolumen();
     }
 
     
@@ -78,6 +88,9 @@ public class InGameIU : MonoBehaviour
             PlayerPrefs.SetString("Level", SceneManager.GetActiveScene().name);
             PlayerPrefs.SetInt("CameraPoint", camController.GetCameraPoint());
             PlayerPrefs.SetFloat("CameraSize", camController.GetSize());
+            PlayerPrefs.SetFloat("SFX_Vol", sliderSFX.value);
+            PlayerPrefs.SetFloat("Music_Vol", sliderMusic.value);
+
             Vector3 aux = deathController.GetSpawnPoint();
             if (aux.x == 0 && aux.y == 00)
             {
@@ -182,6 +195,8 @@ public class InGameIU : MonoBehaviour
             PlayerPrefs.SetFloat("CameraSize", Convert.ToInt32(cadena[2]));
             PlayerPrefs.SetFloat("Player X", Convert.ToSingle(cadena[3]));
             PlayerPrefs.SetFloat("Player Y", Convert.ToSingle(cadena[4]));
+            PlayerPrefs.SetFloat("SFX_Vol", sliderSFX.value);
+            PlayerPrefs.SetFloat("Music_Vol", sliderMusic.value);
             PlayerPrefs.Save();
             teleportMenu.SetActive(false);
             inGameController.ReanudeGame();
@@ -200,5 +215,13 @@ public class InGameIU : MonoBehaviour
     {
         inGameController.ReanudeGame();
         teleportMenu.SetActive(false);
+    }
+    public void SetVolumen()
+    {
+        sfxSource.volume = sliderSFX.value;
+        musicSource.volume = sliderMusic.value;
+        if (PlayerPrefs.HasKey("Music_Vol")) PlayerPrefs.SetFloat("Music_Vol", sliderMusic.value);
+        if (PlayerPrefs.HasKey("SFX_Vol")) PlayerPrefs.SetFloat("SFX_Vol", sliderSFX.value);
+        
     }
 }

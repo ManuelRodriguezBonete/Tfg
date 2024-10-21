@@ -10,7 +10,7 @@ public class DeathControllerScript : MonoBehaviour
     // Start is called before the first frame update
     [Header("Controllers")]
     [SerializeField] private IOController ioController;
-    [SerializeField] private AudioController audioController;
+    [SerializeField] private SFXController audioController;
 
     [Header("Player")]
     [SerializeField] private GameObject player;
