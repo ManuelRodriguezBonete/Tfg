@@ -68,6 +68,7 @@ public class EnterZoneScript : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
+            updateablesItems[i].SetActive(false);
             updateablesItems[i].SetActive(true);
             updateablesItems[i].GetComponent<RestartGameObjecto>().RestartPosition();
         }

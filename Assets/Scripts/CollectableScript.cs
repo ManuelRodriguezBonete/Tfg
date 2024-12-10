@@ -23,7 +23,10 @@ public class CollectableScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (inventory.colectablesDict.ContainsKey(key))
+        {
+            Destroy(gameObject);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

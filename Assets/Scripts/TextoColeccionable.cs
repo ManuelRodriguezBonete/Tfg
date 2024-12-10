@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using UnityEditor;
 using UnityEngine;
 
 public class TextoColeccionable : MonoBehaviour
@@ -17,8 +18,8 @@ public class TextoColeccionable : MonoBehaviour
         cont = GameObject.FindGameObjectWithTag("GameController");
         inventory = cont.GetComponent<Inventory>();
         iucontroller= cont.GetComponent<InGameIU>();
-        
-        dirMemoria = "Tfg_Data/Resources/Text/TextosNotas/" + dirMemoria + ".txt";
+        string aux = PlayerSettings.productName + "_Data";
+        dirMemoria = aux + "/Resources/Text/TextosNotas/" + dirMemoria + ".txt";
         Debug.Log(dirMemoria);
     }
 

@@ -108,6 +108,7 @@ public class InitialMenuController : MonoBehaviour
     {
         mainMenu.SetActive(false);
         settingsMenu.SetActive(true);
+        sliderSFX.Select();
     }
     public void SetVolumen()
     {

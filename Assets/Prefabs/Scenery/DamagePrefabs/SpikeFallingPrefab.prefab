@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 77432200479643834}
   - component: {fileID: 77432200479643838}
   - component: {fileID: 77432200479643839}
+  - component: {fileID: 1281687002520661159}
   m_Layer: 0
   m_Name: Spike_Trigger
   m_TagString: Ground
@@ -194,8 +195,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e4f5d84cfcd3249936cbe34a11b072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
   key: Falling Spike
+--- !u!114 &1281687002520661159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77432200479643832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159e716be44c65a44bbf6c61154335d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &77432201650612985
 GameObject:
   m_ObjectHideFlags: 0

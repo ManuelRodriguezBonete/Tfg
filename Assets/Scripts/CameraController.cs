@@ -8,9 +8,14 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CameraController : MonoBehaviour
 {
-    //public Transform target;
-    //public Vector3 posOffset;
-    //public float smooth = 1;
+    //Metodos seguimiento
+    [SerializeField] bool bossFight;
+    [SerializeField] Transform targetFollow;
+    [SerializeField] Transform targetMIN;
+    [SerializeField] Transform targetMAX;
+    [SerializeField] Vector3 posOffset;
+    [SerializeField] float smooth = 1;
+
 
     [SerializeField] new Camera camera;
     private List<GameObject> listaPuntosCamara = new List<GameObject>();
@@ -24,10 +29,13 @@ public class CameraController : MonoBehaviour
     private float size;
     public int currentPoint;
 
+    private float yLock;
     //Solo se usaría en el método 2
     //Vector3 velocity;
     private void Start()
     {
+        posOffset = new Vector3(0, 0, -10);
+        yLock = transform.position.y;
         //transform.position = target.transform.position;
         //target = listaPuntosCamara[numTarget].transform.position;
         //camera.orthographicSize = numSize;
@@ -88,23 +96,36 @@ public class CameraController : MonoBehaviour
     public void ResetPosKey()
     {
         GameObject currentCam = listaPuntosCamara[currentPoint];
-        Debug.Log(currentCam.gameObject.name);
+        Debug.Log(currentCam.name);
         //for (int i = 0; i < listaPuntosCamara.Count; i++)
         //{
         //    listaPuntosCamara[i].GetComponent<EnterZoneScript>().RestartItems();
         //}
-        currentCam.gameObject.GetComponent<EnterZoneScript>().RestartItems();
+        currentCam.GetComponent<EnterZoneScript>().RestartItems();
     }
 
     private void LateUpdate()
     {
         //Metodo 1
-        //transform.position = Vector3.Lerp(transform.position, target.position + posOffset, smooth * Time.deltaTime);
+        if (bossFight) CameraBoss();
+        else MoveCamera();
+       
 
         //Metodo 2
         //transform.position = Vector3.SmoothDamp(transform.position, target.position + posOffset, ref velocity, smooth);
 
-        MoveCamera();
+        
+    }
+    public void CameraBoss()
+    {
+        //transform.position = Vector3.Lerp(transform.position, targetFollow.position + posOffset, smooth * Time.deltaTime);
+        //float newX = flo
+        if (!(targetFollow.transform.position.x < targetMIN.transform.position.x) || !(targetMAX.transform.position.x < targetFollow.transform.position.x))
+        {
+            Vector3 newPos = new Vector3(targetFollow.transform.position.x, yLock, -10);
+            transform.position = newPos;
+        }
+        
     }
 
     public void MoveCamera()

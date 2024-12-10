@@ -20,7 +20,7 @@ public class StatisticCounter : MonoBehaviour
         if (controller.deathDict.TryGetValue(key, out var auxDeath) && key!= "Total")
         {
             nombre_Enemigo.text = key;
-            numero_Muertes.text = auxDeath.ToString();
+            numero_Muertes.text = auxDeath.ToString() + " times";
             inter.gameObject.SetActive(false);
             icono_Enemigo.gameObject.SetActive(true);
             textoAux.gameObject.SetActive(true);

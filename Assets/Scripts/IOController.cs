@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Unity.Mathematics;
+using UnityEditor;
+using UnityEditor.Build.Content;
 //using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 
@@ -21,7 +23,8 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            path = "Tfg_Data/Resources/Text/Deaths.txt";
+            string aux = PlayerSettings.productName + "_Data";
+            path = aux + "/Resources/Text/Deaths.txt";
         }
         else
         {
@@ -44,7 +47,8 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            path = "Tfg_Data/Resources/Text/Deaths.txt";
+            string aux = PlayerSettings.productName + "_Data";
+            path = aux + "/Resources/Text/Deaths.txt";
         }
         else
         {
@@ -61,7 +65,8 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            path = "Tfg_Data/Resources/Text/Skills.txt";
+            string aux = PlayerSettings.productName + "_Data";
+            path = aux + "/Resources/Text/Skills.txt";
         }
         else
         {
@@ -82,7 +87,8 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            path = "Tfg_Data/Resources/Text/Skills.txt";
+            string aux = PlayerSettings.productName + "_Data";
+            path = aux + "/Resources/Text/Skills.txt";
         }
         else
         {
@@ -99,7 +105,8 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            path = "Tfg_Data/Resources/Text/NotasSecretas.txt";
+            string aux = PlayerSettings.productName + "_Data";
+            path = aux + "/Resources/Text/NotasSecretas.txt";
         }
         else
         {
@@ -121,7 +128,8 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            path = "Tfg_Data/Resources/Text/Coleccionables.txt";
+            string aux = PlayerSettings.productName + "_Data";
+            path =  aux + "/Resources/Text/Coleccionables.txt";
         }
         else
         {
@@ -143,7 +151,8 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            path = "Tfg_Data/Resources/Text/ViajeRapido.txt";
+            string aux = PlayerSettings.productName + "_Data";
+            path =aux + "/Resources/Text/ViajeRapido.txt";
         }
         else
         {
@@ -165,7 +174,8 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            path = "Tfg_Data/Resources/Text/NotasSecretas.txt";
+            string aux = PlayerSettings.productName + "_Data";
+            path = aux + "/Resources/Text/NotasSecretas.txt";
         }
         else
         {
@@ -182,7 +192,8 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            path = "Tfg_Data/Resources/Text/Coleccionables.txt";
+            string aux = PlayerSettings.productName + "_Data";
+            path = aux + "/Resources/Text/Coleccionables.txt";
         }
         else
         {
@@ -200,7 +211,8 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            path = "Tfg_Data/Resources/Text/ViajeRapido.txt";
+            string aux = PlayerSettings.productName + "_Data";
+            path = aux + "/Resources/Text/ViajeRapido.txt";
         }
         else
         {
@@ -217,7 +229,8 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            path = "Tfg_Data/Resources/Text/ViajeRapido.txt";
+            string aux = PlayerSettings.productName + "_Data";
+            path = aux + "/Resources/Text/ViajeRapido.txt";
         }
         else
         {
@@ -227,7 +240,8 @@ public class IOController : MonoBehaviour
 
         if (exe)
         {
-            path = "Tfg_Data/Resources/Text/Coleccionables.txt";
+            string aux = PlayerSettings.productName + "_Data";
+            path = aux + "/Resources/Text/Coleccionables.txt";
         }
         else
         {
@@ -237,7 +251,8 @@ public class IOController : MonoBehaviour
 
         if (exe)
         {
-            path = "Tfg_Data/Resources/Text/NotasSecretas.txt";
+            string aux = PlayerSettings.productName + "_Data";
+            path = aux + "/Resources/Text/NotasSecretas.txt";
         }
         else
         {
@@ -247,7 +262,8 @@ public class IOController : MonoBehaviour
 
         if (exe)
         {
-            path = "Tfg_Data/Resources/Text/Skills.txt";
+            string aux = PlayerSettings.productName + "_Data";
+            path = aux + "/Resources/Text/Skills.txt";
         }
         else
         {
@@ -257,7 +273,8 @@ public class IOController : MonoBehaviour
 
         if (exe)
         {
-            path = "Tfg_Data/Resources/Text/Deaths.txt";
+            string aux = PlayerSettings.productName + "_Data";
+            path =  aux + "/Resources/Text/Deaths.txt";
         }
         else
         {
