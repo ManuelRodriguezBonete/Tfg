@@ -18,7 +18,7 @@ public class TextoColeccionable : MonoBehaviour
         cont = GameObject.FindGameObjectWithTag("GameController");
         inventory = cont.GetComponent<Inventory>();
         iucontroller= cont.GetComponent<InGameIU>();
-        string aux = PlayerSettings.productName + "_Data";
+        string aux = "SlimeJourney_0" + "_Data";
         dirMemoria = aux + "/Resources/Text/TextosNotas/" + dirMemoria + ".txt";
         Debug.Log(dirMemoria);
     }

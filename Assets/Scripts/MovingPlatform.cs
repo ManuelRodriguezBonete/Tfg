@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class MovingPlatform : MonoBehaviour
 {
@@ -10,6 +11,20 @@ public class MovingPlatform : MonoBehaviour
     private int currentPos = 0;
     private int numPosiciones;
 
+    private void LateUpdate()
+    {
+        if (this.CompareTag("Enemie"))
+        {
+            if ( target.x > this.transform.position.x)
+            {
+                transform.rotation = Quaternion.Euler(0,180,0);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+        }           
+    }
     void Start()
     {
         try
@@ -24,7 +39,11 @@ public class MovingPlatform : MonoBehaviour
         }
         
     }
-
+    public void ResetCurrentPos()
+    {
+        currentPos = 0;
+        target = posiciones[currentPos].position;
+    }
     void Update()
     {
         if (numPosiciones > 0)

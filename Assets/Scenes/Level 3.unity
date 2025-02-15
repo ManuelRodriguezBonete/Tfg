@@ -15149,6 +15149,7 @@ MonoBehaviour:
   audioController: {fileID: 730316160}
   player: {fileID: 969775053}
   death: 0
+  bossFight: 0
 --- !u!4 &730316159
 Transform:
   m_ObjectHideFlags: 0
@@ -15383,7 +15384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 730316162}
-  ambience: {fileID: 8300000, guid: 5262deb59793cbc4dae37a161a811751, type: 3}
+  ambience: {fileID: 8300000, guid: 51170fdb516d3984594514df51d83264, type: 3}
 --- !u!1 &739647565
 GameObject:
   m_ObjectHideFlags: 0
@@ -26366,6 +26367,7 @@ MonoBehaviour:
   numTarget: 0
   numSize: 4
   currentPoint: 0
+  yLock: 0
 --- !u!81 &1306829502
 AudioListener:
   m_ObjectHideFlags: 0
@@ -33702,6 +33704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665f7c9cd67a04c4ca2733498daf3620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hardTiles: 0
 --- !u!19719996 &1525277105
 TilemapCollider2D:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class UnlockSkillPlayerScript : MonoBehaviour
         else if (skillName == "WallJump" && player.GetComponent<PlayerMovement>().UnlockedWallGrab) Destroy(gameObject);
         else if (skillName == "Climbing" && player.GetComponent<PlayerMovement>().UnlockedClimbing) Destroy(gameObject);
         else if (skillName == "BreakItems" && player.GetComponent<PlayerMovement>().UnlockedBreakItems) Destroy(gameObject);
+        else if (skillName == "BreakItemsII" && player.GetComponent<PlayerMovement>().UnlockedBreakItemsII) Destroy(gameObject);
         else if (skillName == "ExtraJump" && player.GetComponent<PlayerMovement>().NExtraJumps == 1) Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)

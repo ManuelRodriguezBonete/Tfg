@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool unlockedWallGrab;
     [SerializeField] private bool unlockedClimbing;
     [SerializeField] private bool unlockedBreakItems;
+    [SerializeField] private bool unlockedBreakItemsII;
 
     [Header("Movement")]
     public bool controlsOK = true;  
@@ -89,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canCorner;
 
     public bool UnlockedBreakItems { get => unlockedBreakItems; set => unlockedBreakItems = value; }
+    public bool UnlockedBreakItemsII { get => unlockedBreakItemsII; set => unlockedBreakItemsII = value; }
     public bool UnlockedClimbing { get => unlockedClimbing; set => unlockedClimbing = value; }
     public bool UnlockedWallGrab { get => unlockedWallGrab; set => unlockedWallGrab = value; }
     public bool UnlockedDash { get => unlockedDash; set => unlockedDash = value; }
@@ -459,6 +461,7 @@ public class PlayerMovement : MonoBehaviour
         if (skill == "WallJump") unlockedWallGrab = true;
         if (skill == "Climbing") UnlockedClimbing = true;
         if (skill == "BreakItems") UnlockedBreakItems = true;
+        if (skill == "BreakItemsII") UnlockedBreakItemsII = true;
         if (skill == "ExtraJump") nExtraJumps = 1;
  
     }

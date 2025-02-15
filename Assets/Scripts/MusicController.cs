@@ -17,5 +17,11 @@ public class MusicController : MonoBehaviour
         musicSource.loop = true;
         musicSource.Play();
     }
+    public void ChangeMusic(AudioClip clip)
+    {
+        musicSource.clip= clip;
+        musicSource.loop = true;
+        musicSource.Play();
+    }
 
 }

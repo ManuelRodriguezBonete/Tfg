@@ -11,6 +11,9 @@ public class ChangeRoom : MonoBehaviour
     [SerializeField] private float sizeAnterior = 7;
     [SerializeField] private float sizePosterior = 7;
     [SerializeField] private bool animacion;
+
+    [SerializeField] private bool enterBossRoom = false;
+    [SerializeField] private Vector3 offSetBoss;
     
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -48,7 +51,14 @@ public class ChangeRoom : MonoBehaviour
             }
             int aux = controller.GetCameraPoint();
             Debug.Log(aux);
-            
+
+            if (enterBossRoom)
+            {
+                controller.bossFight = true;
+                controller.SetSize(sizePosterior);
+                controller.posOffset = offSetBoss;
+                controller.yLock = offSetBoss.y;
+            }
             
         }
     }

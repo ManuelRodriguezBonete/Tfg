@@ -6,6 +6,7 @@ public class RestartGameObjecto : MonoBehaviour
 {
     // Start is called before the first frame update
     Vector3 initialPos= Vector3.zero;
+    //[SerializeField] private bool restartMoving;
     void Awake()
     {
         if (transform.parent == null)
@@ -19,5 +20,6 @@ public class RestartGameObjecto : MonoBehaviour
     public void RestartPosition()
     {
         transform.position = initialPos;
+        if (transform.GetComponentInParent<MovingPlatform>()) transform.GetComponentInParent<MovingPlatform>().ResetCurrentPos(); 
     }
 }

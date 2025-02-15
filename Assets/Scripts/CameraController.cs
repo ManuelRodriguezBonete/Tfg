@@ -9,11 +9,11 @@ using static UnityEngine.GraphicsBuffer;
 public class CameraController : MonoBehaviour
 {
     //Metodos seguimiento
-    [SerializeField] bool bossFight;
+    [SerializeField] public bool bossFight;
     [SerializeField] Transform targetFollow;
     [SerializeField] Transform targetMIN;
     [SerializeField] Transform targetMAX;
-    [SerializeField] Vector3 posOffset;
+    [SerializeField] public Vector3 posOffset;
     [SerializeField] float smooth = 1;
 
 
@@ -25,11 +25,11 @@ public class CameraController : MonoBehaviour
     private Vector3 target;
     //private int currentPos = 0;
     [SerializeField] private int numTarget = 0;
-    [SerializeField] private float numSize = 7;
+    [SerializeField] private float numSize;
     private float size;
     public int currentPoint;
 
-    private float yLock;
+    public float yLock;
     //Solo se usaría en el método 2
     //Vector3 velocity;
     private void Start()
@@ -52,7 +52,11 @@ public class CameraController : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name != "Creditos" && SceneManager.GetActiveScene().name != "Estadísticas")
         {
-            if (PlayerPrefs.HasKey("CameraPoint"))
+            if (bossFight)
+            {
+                camera.orthographicSize = numSize;
+            }
+            else if (PlayerPrefs.HasKey("CameraPoint"))
             {
                 target = listaPuntosCamara[PlayerPrefs.GetInt("CameraPoint")].transform.position;
                 currentPoint = PlayerPrefs.GetInt("CameraPoint");
@@ -122,7 +126,7 @@ public class CameraController : MonoBehaviour
         //float newX = flo
         if (!(targetFollow.transform.position.x < targetMIN.transform.position.x) || !(targetMAX.transform.position.x < targetFollow.transform.position.x))
         {
-            Vector3 newPos = new Vector3(targetFollow.transform.position.x, yLock, -10);
+            Vector3 newPos = new Vector3(targetFollow.transform.position.x + posOffset.x, yLock, -10);
             transform.position = newPos;
         }
         

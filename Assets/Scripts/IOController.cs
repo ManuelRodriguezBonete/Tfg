@@ -6,13 +6,13 @@ using System.IO;
 using System.Linq;
 using Unity.Mathematics;
 using UnityEditor;
-using UnityEditor.Build.Content;
-//using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 
 public class IOController : MonoBehaviour
 {
     [SerializeField] private bool exe = false;
+    private string nombreProj = "SlimeJourney_0";
+
     private void Start()
     {
         //exe = false;
@@ -23,7 +23,7 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            string aux = PlayerSettings.productName + "_Data";
+            string aux = nombreProj + "_Data";
             path = aux + "/Resources/Text/Deaths.txt";
         }
         else
@@ -47,7 +47,7 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            string aux = PlayerSettings.productName + "_Data";
+            string aux = nombreProj + "_Data";
             path = aux + "/Resources/Text/Deaths.txt";
         }
         else
@@ -65,7 +65,7 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            string aux = PlayerSettings.productName + "_Data";
+            string aux = nombreProj + "_Data";
             path = aux + "/Resources/Text/Skills.txt";
         }
         else
@@ -87,7 +87,7 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            string aux = PlayerSettings.productName + "_Data";
+            string aux = nombreProj + "_Data";
             path = aux + "/Resources/Text/Skills.txt";
         }
         else
@@ -105,7 +105,7 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            string aux = PlayerSettings.productName + "_Data";
+            string aux = nombreProj + "_Data";
             path = aux + "/Resources/Text/NotasSecretas.txt";
         }
         else
@@ -128,7 +128,7 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            string aux = PlayerSettings.productName + "_Data";
+            string aux = nombreProj + "_Data";
             path =  aux + "/Resources/Text/Coleccionables.txt";
         }
         else
@@ -151,7 +151,7 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            string aux = PlayerSettings.productName + "_Data";
+            string aux = nombreProj + "_Data";
             path =aux + "/Resources/Text/ViajeRapido.txt";
         }
         else
@@ -174,7 +174,7 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            string aux = PlayerSettings.productName + "_Data";
+            string aux = nombreProj + "_Data";
             path = aux + "/Resources/Text/NotasSecretas.txt";
         }
         else
@@ -192,7 +192,7 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            string aux = PlayerSettings.productName + "_Data";
+            string aux = nombreProj + "_Data";
             path = aux + "/Resources/Text/Coleccionables.txt";
         }
         else
@@ -211,7 +211,7 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            string aux = PlayerSettings.productName + "_Data";
+            string aux = nombreProj + "_Data";
             path = aux + "/Resources/Text/ViajeRapido.txt";
         }
         else
@@ -229,7 +229,7 @@ public class IOController : MonoBehaviour
         string path;
         if (exe)
         {
-            string aux = PlayerSettings.productName + "_Data";
+            string aux = nombreProj + "_Data";
             path = aux + "/Resources/Text/ViajeRapido.txt";
         }
         else
@@ -240,7 +240,7 @@ public class IOController : MonoBehaviour
 
         if (exe)
         {
-            string aux = PlayerSettings.productName + "_Data";
+            string aux = nombreProj + "_Data";
             path = aux + "/Resources/Text/Coleccionables.txt";
         }
         else
@@ -251,7 +251,7 @@ public class IOController : MonoBehaviour
 
         if (exe)
         {
-            string aux = PlayerSettings.productName + "_Data";
+            string aux = nombreProj + "_Data";
             path = aux + "/Resources/Text/NotasSecretas.txt";
         }
         else
@@ -262,7 +262,7 @@ public class IOController : MonoBehaviour
 
         if (exe)
         {
-            string aux = PlayerSettings.productName + "_Data";
+            string aux = nombreProj + "_Data";
             path = aux + "/Resources/Text/Skills.txt";
         }
         else
@@ -273,7 +273,7 @@ public class IOController : MonoBehaviour
 
         if (exe)
         {
-            string aux = PlayerSettings.productName + "_Data";
+            string aux = nombreProj + "_Data";
             path =  aux + "/Resources/Text/Deaths.txt";
         }
         else

@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 public class DeathControllerScript : MonoBehaviour
@@ -19,6 +21,7 @@ public class DeathControllerScript : MonoBehaviour
     private Vector3 spawnPoint;
     private float timer = 0.5f;
     public bool death;
+    [SerializeField] bool bossFight = false;
 
     private void Start()
     {
@@ -46,24 +49,49 @@ public class DeathControllerScript : MonoBehaviour
     }
     public void KillPlayer(string key)
     {
-        audioController.DeathSound();
-        death = true;
-        player.transform.position = spawnPoint;
-        player.GetComponent<PlayerMovement>().controlsOK = false;
-        player.GetComponent<Rigidbody2D>().velocity= Vector3.zero;
-        if (deathDict.TryGetValue(key, out var auxDeath))
+        if (!bossFight) 
         {
-            auxDeath++;
-            deathDict[key] = auxDeath;
+            audioController.DeathSound();
+            death = true;
+            player.transform.position = spawnPoint;
+            player.GetComponent<PlayerMovement>().controlsOK = false;
+            player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            if (deathDict.TryGetValue(key, out var auxDeath))
+            {
+                auxDeath++;
+                deathDict[key] = auxDeath;
+            }
+            else
+            {
+                deathDict.Add(key, 1);
+            }
+
+            deathDict.TryGetValue("Total", out var totalDeaths);
+            totalDeaths++;
+            deathDict["Total"] = totalDeaths;
         }
         else
         {
-            deathDict.Add(key, 1);
-        }
+            audioController.DeathSound();
+            death = true;
+            //player.transform.position = spawnPoint;
+            //player.GetComponent<PlayerMovement>().controlsOK = false;
+            //player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            //if (deathDict.TryGetValue(key, out var auxDeath))
+            //{
+            //    auxDeath++;
+            //    deathDict[key] = auxDeath;
+            //}
+            //else
+            //{
+            //    deathDict.Add(key, 1);
+            //}
 
-        deathDict.TryGetValue("Total", out var totalDeaths);
-        totalDeaths++;
-        deathDict["Total"] = totalDeaths;
+            //deathDict.TryGetValue("Total", out var totalDeaths);
+            //totalDeaths++;
+            //deathDict["Total"] = totalDeaths;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         
     }
 
