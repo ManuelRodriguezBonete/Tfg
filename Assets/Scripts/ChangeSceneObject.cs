@@ -17,16 +17,11 @@ public class ChangeSceneObject : MonoBehaviour
         iu = FindObjectOfType<InGameIU>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (SceneManager.GetActiveScene().name != "Creditos" && SceneManager.GetActiveScene().name != "Estadísticas")
         {
-            iu.SaveData();
+            //iu.SaveData();
             PlayerPrefs.SetString("Level", sceneNameObjective);
             PlayerPrefs.SetInt("CameraPoint", cameraPoint);
             PlayerPrefs.SetFloat("CameraSize", cameraSize);

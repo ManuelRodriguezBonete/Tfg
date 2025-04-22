@@ -10,6 +10,7 @@ public class ViajeRapidoScript : MonoBehaviour
     [SerializeField] private GameObject color;
     [SerializeField] private GameObject tecla;
     [SerializeField] private string key;
+    [Header("Escena_CameraPoint_TamañoCam_PosX_PosY")]
     [SerializeField] private string value;
     private Inventory inv;
     private GameObject cont;

@@ -7,8 +7,8 @@ public class CreditItem : MonoBehaviour
     [SerializeField] GameObject texto;
     [SerializeField] GameObject keybind;
 
-    public bool cerca = false;
-    public bool activo = false;
+    private bool cerca = false;
+    private bool activo = false;
     // Start is called before the first frame update
     void Start()
     {

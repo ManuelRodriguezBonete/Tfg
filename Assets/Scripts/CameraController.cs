@@ -8,34 +8,37 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CameraController : MonoBehaviour
 {
-    //Metodos seguimiento
+    [Header("Metodos de seguimiento - Only Bosses")]
     [SerializeField] public bool bossFight;
     [SerializeField] Transform targetFollow;
     [SerializeField] Transform targetMIN;
     [SerializeField] Transform targetMAX;
     [SerializeField] public Vector3 posOffset;
     [SerializeField] float smooth = 1;
-
-
+    public float yLock;
+    public float xLock;
+    public bool vertical;
+    [Header("Cámara normal")]
     [SerializeField] new Camera camera;
     private List<GameObject> listaPuntosCamara = new List<GameObject>();
     [SerializeField] private GameObject listaPC;
-    [SerializeField] private float speed = 15;
+    //[SerializeField] private float speed = 15;
     private bool animacion = true;
     private Vector3 target;
     //private int currentPos = 0;
-    [SerializeField] private int numTarget = 0;
-    [SerializeField] private float numSize;
+    /*[SerializeField] */private int numTarget = 0;
+    /*[SerializeField]*/ private float numSize;
     private float size;
-    public int currentPoint;
+    private int currentPoint;
 
-    public float yLock;
+   
     //Solo se usaría en el método 2
     //Vector3 velocity;
     private void Start()
     {
         posOffset = new Vector3(0, 0, -10);
         yLock = transform.position.y;
+        xLock = transform.position.y;
         //transform.position = target.transform.position;
         //target = listaPuntosCamara[numTarget].transform.position;
         //camera.orthographicSize = numSize;
@@ -122,13 +125,23 @@ public class CameraController : MonoBehaviour
     }
     public void CameraBoss()
     {
-        //transform.position = Vector3.Lerp(transform.position, targetFollow.position + posOffset, smooth * Time.deltaTime);
-        //float newX = flo
-        if (!(targetFollow.transform.position.x < targetMIN.transform.position.x) || !(targetMAX.transform.position.x < targetFollow.transform.position.x))
+        if (!vertical)
         {
-            Vector3 newPos = new Vector3(targetFollow.transform.position.x + posOffset.x, yLock, -10);
-            transform.position = newPos;
+            if (!(targetFollow.transform.position.x < targetMIN.transform.position.x) || !(targetMAX.transform.position.x < targetFollow.transform.position.x))
+            {
+                Vector3 newPos = new Vector3(targetFollow.transform.position.x + posOffset.x, yLock, -10);
+                transform.position = newPos;
+            }
         }
+        else 
+        {
+            if (!(targetFollow.transform.position.y < targetMIN.transform.position.y) || !(targetMAX.transform.position.y < targetFollow.transform.position.y))
+            {
+                Vector3 newPos = new Vector3(target.x , targetFollow.transform.position.y + posOffset.y, -10);
+                transform.position = newPos;
+            }
+        }
+        
         
     }
 

@@ -6,10 +6,12 @@ using UnityEngine.Tilemaps;
 public class BreakeableGround : MonoBehaviour
 {
     Tilemap tilemap;
+    Tilemap tilemapCopia;
     [SerializeField] bool hardTiles; 
     void Start()
     {
         tilemap = gameObject.GetComponent<Tilemap>();
+        tilemapCopia = gameObject.GetComponent<Tilemap>();
     }
 
     
@@ -66,5 +68,10 @@ public class BreakeableGround : MonoBehaviour
         }
 
 
+    }
+    public void ResetLayer()
+    {
+        Debug.Log("HA ENTRADO");
+        tilemap.RefreshAllTiles() ;
     }
 }

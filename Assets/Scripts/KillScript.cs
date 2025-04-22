@@ -6,6 +6,7 @@ public class KillScript : MonoBehaviour
 {
     private DeathControllerScript controller;
     private CameraController camera_controller;
+    private BreakeableGround breakground;
     [SerializeField] string key;
     // Start is called before the first frame update
 
@@ -13,14 +14,17 @@ public class KillScript : MonoBehaviour
     {
         controller = FindObjectOfType<DeathControllerScript>();
         camera_controller = FindObjectOfType<CameraController>();
+        breakground = FindObjectOfType<BreakeableGround>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) 
         {
+            //breakground.ResetLayer();
             camera_controller.ResetPosKey();
             controller.KillPlayer(key);
+            
         }
     }
 }

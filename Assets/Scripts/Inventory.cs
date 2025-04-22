@@ -43,7 +43,6 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     public void UpdateSkills()
     {
         for (int i = 0; i < skillsInventoryItems.Count; i++)

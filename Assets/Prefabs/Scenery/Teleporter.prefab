@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 2134285985845566801}
   m_Layer: 0
   m_Name: Teleporter
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -294,13 +294,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15bdffcb8f3dcd4a9cb9313280a816c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iu: {fileID: 0}
   dark: {fileID: 2134285984925445978}
   color: {fileID: 2134285984589980460}
   tecla: {fileID: 2134285986487741779}
   key: Home
   value: 1_00_7_-42_1,5
-  inv: {fileID: 0}
 --- !u!61 &2134285985845566801
 BoxCollider2D:
   m_ObjectHideFlags: 0

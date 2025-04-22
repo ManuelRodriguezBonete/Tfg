@@ -74,22 +74,22 @@ public class DeathControllerScript : MonoBehaviour
         {
             audioController.DeathSound();
             death = true;
-            //player.transform.position = spawnPoint;
-            //player.GetComponent<PlayerMovement>().controlsOK = false;
-            //player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            //if (deathDict.TryGetValue(key, out var auxDeath))
-            //{
-            //    auxDeath++;
-            //    deathDict[key] = auxDeath;
-            //}
-            //else
-            //{
-            //    deathDict.Add(key, 1);
-            //}
+            player.transform.position = spawnPoint;
+            player.GetComponent<PlayerMovement>().controlsOK = false;
+            player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            if (deathDict.TryGetValue(key, out var auxDeath))
+            {
+                auxDeath++;
+                deathDict[key] = auxDeath;
+            }
+            else
+            {
+                deathDict.Add(key, 1);
+            }
 
-            //deathDict.TryGetValue("Total", out var totalDeaths);
-            //totalDeaths++;
-            //deathDict["Total"] = totalDeaths;
+            deathDict.TryGetValue("Total", out var totalDeaths);
+            totalDeaths++;
+            deathDict["Total"] = totalDeaths;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         
