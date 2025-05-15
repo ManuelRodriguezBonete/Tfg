@@ -164,11 +164,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3386912027672180268, guid: 7221281d6d02a5049a43f06c4fdb9773, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 0.112500004
       objectReference: {fileID: 0}
     - target: {fileID: 3386912027672180268, guid: 7221281d6d02a5049a43f06c4fdb9773, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.68
+      value: 8.86
       objectReference: {fileID: 0}
     - target: {fileID: 3386912027672180268, guid: 7221281d6d02a5049a43f06c4fdb9773, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1461,12 +1461,11 @@ MonoBehaviour:
   targetMAX: {fileID: 0}
   posOffset: {x: 0, y: 0, z: 0}
   smooth: 1
+  yLock: 0
+  xLock: 0
+  vertical: 0
   camera: {fileID: 1034361967}
   listaPC: {fileID: 2072708255}
-  speed: 15
-  numTarget: 0
-  numSize: 5
-  currentPoint: 0
 --- !u!1 &1087691861
 GameObject:
   m_ObjectHideFlags: 0

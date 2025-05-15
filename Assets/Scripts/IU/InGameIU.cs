@@ -102,10 +102,8 @@ public class InGameIU : MonoBehaviour
                 PlayerPrefs.SetFloat("Player X", aux.x);
                 PlayerPrefs.SetFloat("Player Y", aux.y);
             }
-            
             PlayerPrefs.Save();
         }
-        
     }
     public void OnPauseMenu()
     {

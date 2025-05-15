@@ -13444,6 +13444,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: ColeccionableTexto
       objectReference: {fileID: 0}
+    - target: {fileID: 4321414549533106943, guid: 308d4c790f3f0124cad7eafd2f44bc1c, type: 3}
+      propertyPath: dirMemoria
+      value: Texto 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321414549533106943, guid: 308d4c790f3f0124cad7eafd2f44bc1c, type: 3}
+      propertyPath: numerotexto
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321414549539295470, guid: 308d4c790f3f0124cad7eafd2f44bc1c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.058
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321414549539295470, guid: 308d4c790f3f0124cad7eafd2f44bc1c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.047
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321414549539295471, guid: 308d4c790f3f0124cad7eafd2f44bc1c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f0f311bd0a6341c4ebbb56622edf4eb2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 308d4c790f3f0124cad7eafd2f44bc1c, type: 3}
 --- !u!1 &724450399
